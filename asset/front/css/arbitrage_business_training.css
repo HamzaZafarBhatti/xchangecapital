@@ -1,0 +1,414 @@
+.heading1 {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #ffffff !important;
+    clear: both;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    letter-spacing: normal;
+    text-align: center;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    background-color: #17212c;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#content {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0.825rem;
+    list-style: none;
+    text-align: center !important;
+    font-weight: 600;
+    color: #404040;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    letter-spacing: normal;
+    orphans: 2;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    widows: 2;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    background-color: #17212c;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    border-radius: 10px;
+}
+
+.entry-header {
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    margin: 0px 0px 0.938rem;
+    color: #404040;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+.entry-title {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #000000;
+    font-size: 2.125rem;
+    clear: both;
+    word-break: break-word;
+    white-space: normal;
+    text-align: center;
+    padding-left: 40px;
+}
+
+.border0 ul:nth-child(3) li {
+    list-style: none;
+}
+
+.author {
+    box-sizing: border-box;
+    color: #838383;
+    margin: 0px 1.25rem 0px 0px;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-size: 15.008px;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-weight: 500;
+    letter-spacing: normal;
+    orphans: 2;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    widows: 2;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    background-color: #ffffff;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+
+.posted-on {
+    box-sizing: border-box;
+    color: #838383;
+    margin: 0px 1.25rem 0px 0px;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-size: 15.008px;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-weight: 500;
+    letter-spacing: normal;
+    orphans: 2;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    widows: 2;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    background-color: #ffffff;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+.comment-links {
+    box-sizing: border-box;
+    color: #838383;
+    margin: 0px 1.25rem 0px 0px;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-size: 15.008px;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-weight: 500;
+    letter-spacing: normal;
+    orphans: 2;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    widows: 2;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    background-color: #ffffff;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+.author a,
+.posted-on a,
+.comment-links a {
+    box-sizing: border-box;
+    color: #838383;
+    text-decoration: none;
+    background-color: transparent;
+    transition: all 0.3s ease 0s;
+    padding: 0px;
+    display: inline-block;
+}
+
+.banner-image img {
+    max-width: 921px;
+    max-height: 518px;
+    width: 100%;
+    height: auto;
+}
+
+.link_btn img {
+    max-width: 338px;
+    max-height: 43px;
+}
+
+.banner-image img,
+.link_btn img {
+    width: 100%;
+    height: auto;
+}
+
+.heading2 {
+    box-sizing: border-box;
+    margin: 0px 0px 1.4rem;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #000000;
+    font-size: 1.75rem;
+    clear: both;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    letter-spacing: normal;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    background-color: #ffffff;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+.heading3 {
+    box-sizing: border-box;
+    margin: 0px 0px 1.4rem;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #000000;
+    font-size: 1.375rem;
+    clear: both;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    letter-spacing: normal;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    background-color: #ffffff;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+.heading4 {
+    box-sizing: border-box;
+    margin: 0px 0px 1.4rem;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #000000;
+    font-size: 2.125rem;
+    clear: both;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    letter-spacing: normal;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    background-color: #ffffff;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+.para1 {
+    box-sizing: border-box;
+    margin: 0px 0px 1.563rem;
+    padding: 20px 30px 20px 30px;
+    color: #404040;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    background-color: #ffffff;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+.para3 {
+    box-sizing: border-box;
+    margin: 0px 0px 1.563rem;
+    padding: 20px 30px 20px 30px;
+    background-color: #eeeeee;
+    color: #404040;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    border-radius: 10px;
+}
+
+.para2 {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px 0px 1.563rem 0px;
+    color: #404040;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    background-color: #ffffff;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
+
+.para4 {
+    box-sizing: border-box;
+    margin: 0px 0px 1.563rem;
+    padding: 20px 30px 20px 30px;
+    color: #404040;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    white-space: normal;
+    word-spacing: 0px;
+    -webkit-text-stroke-width: 0px;
+    text-decoration-thickness: initial;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+    background-color: #aaacf5;
+    border-radius: 10px;
+}
+
+.padding-left {
+    padding-left: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .padding-left {
+        padding-left: unset;
+    }
+
+    .heading1,
+    #content,
+    .para3,
+    .para4 {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .border0 ul:nth-child(3),
+    .heading3,
+    .heading4,
+    .para1 {
+        padding: unset;
+        text-align: center;
+    }
+
+    .heading4 {
+        font-size: calc(1.325rem + .9vw);
+    }
+
+    .para2 {
+        padding-left: unset;
+        text-align: center;
+    }
+
+    .entry-title {
+        padding: unset;
+    }
+}
