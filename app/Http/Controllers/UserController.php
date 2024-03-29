@@ -76,7 +76,6 @@ class UserController extends Controller
 
         $bytes = random_bytes(5);
         $account_id = bin2hex($bytes);
-
         $user = User::create([
             'name' => $request->name,
             'username' => $request->username,

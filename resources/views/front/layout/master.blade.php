@@ -1,56 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NKY0PCWGLW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <title>Bitrader - Professional Multipurpose HTML Template for Your Crypto, Forex, Stocks & Day Trading Business
+    </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  gtag('config', 'G-NKY0PCWGLW');
-</script>
-    <meta charset="utf-8">
-    <title>@yield('title') | {{ $set->site_name }}</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    {{-- <meta content="" name="keywords"> --}}
-    <meta content="{{ $set->site_desc }}" name="description">
+    <!-- Sites meta Data -->
+    <meta name="application-name"
+        content="Bitrader - Professional Multipurpose HTML Template for Your Crypto, Forex, Stocks & Day Trading Business">
+    <meta name="author" content="thetork">
+    <meta name="keywords" content="Bitrader, Crypto, Forex, and Stocks Trading Business">
+    <meta name="description"
+        content="Experience the power of Bitrader, the ultimate HTML template designed to transform your trading business. With its sleek design and advanced features, Bitrader empowers you to showcase your expertise, engage clients, and dominate the markets. Elevate your online presence and unlock new trading possibilities with Bitrader.">
 
-    <!-- Favicon -->
-    <link href="{{ asset('asset/images/' . $set->favicon) }}" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="{{ asset('asset/front/css/css2.css') }}" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="{{ asset('asset/front/css/all.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('asset/front/css/bootstrap-icons.css') }}" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="{{ asset('asset/front/lib/animate/animate.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('asset/front/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{ asset('asset/front/css/bootstrap.min.css') }}" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="{{ asset('asset/front/css/style.css') }}" rel="stylesheet">
-
-    @yield('css')
-<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-b360ba0e-17b6-4a65-95ac-b1b6185d7343"></div>
+    <!-- OG meta data -->
+    <meta property="og:title"
+        content="Bitrader - Professional Multipurpose HTML Template for Your Crypto, Forex, Stocks & Day Trading Business">
+    <meta property="og:site_name" content=Bitrader>
+    <meta property="og:url" content="https://thetork.com/demos/html/Bitrader/">
+    <meta property="og:description"
+        content="Welcome to Bitrader, the game-changing HTML template meticulously crafted to revolutionize your trading business. With its sleek and modern design, Bitrader provides a cutting-edge platform to showcase your expertise, attract clients, and stay ahead in the competitive trading markets.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ asset('asset/new_front/images/og.png') }}">
+    <link rel="shortcut icon" href="{{ asset('asset/new_front/images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('asset/new_front/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/new_front/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/new_front/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/new_front/css/swiper-bundle.min.css') }}">
+    <!-- main css for template -->
+    <link rel="stylesheet" href="{{ asset('asset/new_front/css/style.css') }}">
+    @yield('styles')
 </head>
 
-<body>
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+<body class="home-5">
+    <!-- ===============>> Preloader start here <<================= -->
+    <div class="preloader">
+        <img src="{{ asset('asset/new_front/images/logo/preloader.png') }}" alt="preloader icon">
     </div>
-    <!-- Spinner End -->
+    <!-- ===============>> Preloader end here <<================= -->
+
+    <!-- ===============>> light&dark switch start here <<================= -->
+    <div class="lightdark-switch ">
+        <span class="switch-btn switch-btn--style2" id="btnSwitch"><img
+                src="{{ asset('asset/new_front/images/icon/moon.svg') }}" alt="light-dark-switchbtn"
+                class="swtich-icon"></span>
+    </div>
+    <!-- ===============>> light&dark switch start here <<================= -->
 
     @include('front.layout.navbar')
 
@@ -58,23 +56,19 @@
 
     @include('front.layout.footer')
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-            class="bi bi-arrow-up"></i></a>
+    <!-- ===============>> scrollToTop start here <<================= -->
+    <a href="#" class="scrollToTop scrollToTop--style2"><i class="fa-solid fa-arrow-up-from-bracket"></i></a>
+    <!-- ===============>> scrollToTop ending here <<================= -->
 
-
-    <!-- JavaScript Libraries -->
-    <script src="{{ asset('asset/front/js/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('asset/front/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('asset/front/lib/wow/wow.min.js') }}"></script>
-    <script src="{{ asset('asset/front/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('asset/front/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('asset/front/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('asset/front/lib/counterup/counterup.min.js') }}"></script>
-
-    <!-- Template Javascript -->
-    <script src="{{ asset('asset/front/js/main.js') }}"></script>
-    @yield('script')
+    <!-- vendor plugins -->
+    <script src="{{ asset('asset/new_front/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/all.min.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/aos.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/fslightbox.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/purecounter_vanilla.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/custom.js') }}"></script>
+    @yield('scripts')
 </body>
 
 </html>

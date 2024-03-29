@@ -1,108 +1,146 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login | {{ $set->title }}</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('asset/images/' . $set->favicon) }}" />
-    <link rel="stylesheet" href="{{ asset('asset/user/css/libs.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('asset/user/css/coinex.css?v=1.0.0') }}">
+    <title>Bitrader - Professional Multipurpose HTML Template for Your Crypto, Forex, Stocks & Day Trading Business
+    </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Sites meta Data -->
+    <meta name="application-name"
+        content="Bitrader - Professional Multipurpose HTML Template for Your Crypto, Forex, Stocks & Day Trading Business">
+    <meta name="author" content="thetork">
+    <meta name="keywords" content="Bitrader, Crypto, Forex, and Stocks Trading Business">
+    <meta name="description"
+        content="Experience the power of Bitrader, the ultimate HTML template designed to transform your trading business. With its sleek design and advanced features, Bitrader empowers you to showcase your expertise, engage clients, and dominate the markets. Elevate your online presence and unlock new trading possibilities with Bitrader.">
+
+    <!-- OG meta data -->
+    <meta property="og:title"
+        content="Bitrader - Professional Multipurpose HTML Template for Your Crypto, Forex, Stocks & Day Trading Business">
+    <meta property="og:site_name" content=Bitrader>
+    <meta property="og:url" content="https://thetork.com/demos/html/Bitrader/">
+    <meta property="og:description"
+        content="Welcome to Bitrader, the game-changing HTML template meticulously crafted to revolutionize your trading business. With its sleek and modern design, Bitrader provides a cutting-edge platform to showcase your expertise, attract clients, and stay ahead in the competitive trading markets.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ asset('asset/new_front/images/og.png') }}">
+
+
+
+    <link rel="shortcut icon" href="{{ asset('asset/new_front/images/favicon.png') }}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{{ asset('asset/new_front/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/new_front/css/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/new_front/css/all.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('asset/new_front/css/swiper-bundle.min.css') }}">
+
+
+
+    <!-- main css for template -->
+    <link rel="stylesheet" href="{{ asset('asset/new_front/css/style.css') }}">
 </head>
 
-<body class="" data-bs-spy="scroll" data-bs-target="#elements-section" data-bs-offset="0" tabindex="0">
-    <!-- loader Start -->
-    <div id="loading">
-        <div class="loader simple-loader">
-            <div class="loader-body"></div>
-        </div>
+<body>
+
+    <!-- ===============>> Preloader start here <<================= -->
+    <div class="preloader">
+        <img src="{{ asset('asset/new_front/images/logo/preloader.png') }}" alt="preloader icon">
     </div>
-    <!-- loader END -->
-    <div style="background-image: url('{{ asset('asset/front/img/uploads/dark-blue-bg-arbyvest-m0in.png') }}')">
-        <div class="wrapper">
-            <section class="vh-100 bg-image">
-                <div class="container h-100">
-                    <div class="row justify-content-center h-100 align-items-center">
-                        <div class="col-md-6 mt-5">
-                            @if ($errors->get('email'))
-                                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
-                                        <path
-                                            d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z">
-                                        </path>
-                                    </symbol>
-                                </svg>
-                                @foreach ((array) $errors->get('email')[0] as $message)
-                                    <div class="alert alert-danger d-flex align-items-center" role="alert">
-                                        <svg class="bi flex-shrink-0 me-2" width="24" height="24">
-                                            <use xlink:href="#exclamation-triangle-fill"></use>
-                                        </svg>
-                                        <div>
-                                            {{ $message }}
+    <!-- ===============>> Preloader end here <<================= -->
+
+    <!-- ===============>> account start here <<================= -->
+    <section class="account padding-top padding-bottom sec-bg-color2">
+        <div class="container">
+            <div class="account__wrapper" data-aos="fade-up" data-aos-duration="800">
+                <div class="account__inner">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <div class="account__thumb">
+                                <img src="{{ asset('asset/new_front/images/account/1.png') }}" alt="account-image"
+                                    class="dark">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="account__content account__content--style2">
+
+                                <!-- account tittle -->
+                                <div class="account__header">
+                                    <h2>Log in</h2>
+                                    <p class="mb-0">Hey there! Ready to log in? Just enter your credentials and we'll
+                                        get you to your
+                                        account in no time. Let's go!</p>
+                                </div>
+
+                                <!-- account form -->
+                                <form action="{{ route('user.login') }}" method="post"
+                                    class="account__form needs-validation" novalidate>
+                                    @csrf
+                                    <div class="row g-4">
+                                        <div class="col-12">
+                                            <div>
+                                                <label for="email" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="email" name="email"
+                                                    placeholder="Enter your email" required>
+                                                @error('email')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-pass">
+                                                <label for="password" class="form-label">Password</label>
+                                                <input type="password" class="form-control showhide-pass"
+                                                    name="password" id="" placeholder="Password" required>
+
+                                                <button type="button" id="btnToggle" class="form-pass__toggle"><i
+                                                        id="eyeIcon" class="fa fa-eye"></i></button>
+                                            </div>
                                         </div>
                                     </div>
-                                @endforeach
-                            @endif
-                            @include('user.alert')
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="auth-form">
-                                        <a href="https://arbyvest.com/" target="_blank"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://arbyvest.com/asset/images/logo_1672177094.png" width="278" height="59" /></a>
-                                        <p class="text-center mt-1"><strong>Foreign Currency Trading
-                                                Platform</strong></p>
-                                        <h3 class="text-center"><strong>LOGIN TO ARBYVEST</strong></h3><br>
-                                        <form method="POST" action="{{ route('user.do_login') }}">
-                                            @csrf
-                                            <div class="form-floating mb-3">
-                                                <input type="email"
-                                                    class="form-control @if ($errors->get('email')) is-invalid @endif"
-                                                    id="email" name="email" placeholder="name@example.com"
-                                                    value="{{ old('email') }}" required autocomplete="false">
-                                                <label for="email">Email</label>
-                                            </div>
-                                            <div class="form-floating mb-2">
-                                                <input type="password" name="password"
-                                                    class="form-control @if ($errors->get('email')) is-invalid @endif"
-                                                    id="password" placeholder="Password" required autocomplete="false">
-                                                <label for="password">Password</label>
-                                            </div>
-                                            <div class="d-flex justify-content-between  align-items-center flex-wrap">
-                                                <div class="form-group">
-                                                    <a href="{{ route('password.request') }}">Forgot Password?</a>
-                                                </div>
-                                            </div>
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-primary">LOGIN ACCOUNT</button>
-                                            </div>
-                                            {{-- @include('user.auth.social_login') --}}
-                                        </form>
-                                        <div class="new-account mt-3 text-center">
-                                            <p>Don't have an account? <a class=""
-                                                    href="{{ route('user.register') }}">Click
-                                                    here to Register Account</a></p>
+
+                                    <div class="account__check">
+                                        <div class="account__check-forgot">
+                                            <a href="{{ route('password.request') }}">Forgot Password?</a>
                                         </div>
                                     </div>
+
+                                    <button type="submit"
+                                        class="trk-btn trk-btn--border trk-btn--primary d-block mt-4">Sign in</button>
+                                </form>
+
+
+                                <div class="account__switch">
+                                    <p>Don't have an account? <a href="{{ route('user.register') }}">Sign up</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-            </section>
+            </div>
         </div>
-    </div>
+    </section>
+    <!-- ===============>> account end here <<================= -->
 
 
-    <!-- Backend Bundle JavaScript -->
-    <script src="{{ asset('asset/user/js/libs.min.js') }}"></script>
-    <!-- widgetchart JavaScript -->
-    <script src="{{ asset('asset/user/js/charts/widgetcharts.js') }}"></script>
-    <!-- fslightbox JavaScript -->
-    <script src="{{ asset('asset/user/js/fslightbox.js') }}"></script>
-    <!-- app JavaScript -->
-    <script src="{{ asset('asset/user/js/app.js') }}"></script>
-    <!-- apexchart JavaScript -->
-    <script src="{{ asset('asset/user/js/charts/apexcharts.js') }}"></script>
+
+
+
+
+
+    <!-- vendor plugins -->
+
+    <script src="{{ asset('asset/new_front/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/all.min.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/aos.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/fslightbox.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/purecounter_vanilla.js') }}"></script>
+    <script src="{{ asset('asset/new_front/js/custom.js') }}"></script>
+
+
 </body>
 
 </html>

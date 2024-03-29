@@ -2,270 +2,210 @@
 
 @section('title', 'Home')
 
-@section('css')
-    <style>
-        .team-item .team-text {
-            padding-top: 5px;
-        }
-    </style>
+@section('styles')
 @endsection
 
 @section('content')
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="w-100" src="https://arbyvest.com/asset/front/img/uploads/carousel-111.jpg" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-lg-8">
-                                    <p
-                                        class="d-inline-block border border-white rounded text-primary fw-semi-bold py-1 px-3 animated slideInDown">
-                                        Welcome to Arbyvest Technology</p>
-                                    <h1 class="display-1 mb-4 animated slideInDown">The Foremost Foreign & Local Currency
-                                        Trader
-                                    </h1>
-                                    <a href="https://arbyvest.com/app/register"
-                                        class="btn btn-primary py-3 px-5 animated slideInDown">Trade Now!</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="w-100" src="https://arbyvest.com/asset/front/img/uploads/carousel-222.jpg" alt="Image">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row justify-content-start">
-                                <div class="col-lg-7">
-                                    <p
-                                        class="d-inline-block border border-white rounded text-primary fw-semi-bold py-1 px-3 animated slideInDown">
-                                        Foreign Currency Trading Platform</p>
-                                    <h1 class="display-1 mb-4 animated slideInDown">Dollar & Pound Private Trading Platform
-                                    </h1>
-                                    <a href="https://arbyvest.com/app/register"
-                                        class="btn btn-primary py-3 px-5 animated slideInDown">Trade Now!</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
-    <!-- Carousel End -->
-
-
-    <!-- About Start -->
-    <div class="container-xxl py-5">
+    <!-- ===============>> Banner section start here <<================= -->
+    <section class="banner banner--style5">
         <div class="container">
-            <div class="row g-4 align-items-end mb-4">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <img class="img-fluid rounded" src="https://arbyvest.com/asset/front/img/uploads/about-2img-min.png">
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">About Us</p>
-                    <h1 class="display-5 mb-4">South Africa based Dollars & Pounds Private Trading Platform</h1>
-                    <p><strong>ARBYVEST is the foremost Foreign Currency private trading platform based in South
-                            Africa.</strong> <em>Our uniqueness as a platform allows members to buy USD, and GBP at our
-                            South Africa e-wallet platform rates and sell at the local black-market rates either in <span
-                                style="text-decoration: underline;">South Africa Rand</span> or in <span
-                                style="text-decoration: underline;">Nigerian Naira</span> on our platform.</em></p>
-                    <a href="https://arbyvest.com/asset/whitepaper/how-it-works/document/Trading%20Foreign%20Currencies%20with%20ARBYVEST%20TECHNOLOGY.pdf"
-                        class="btn btn-primary py-3 px-5 mt-3">Download The GUIDE Now!</a>
-                    <div class="border rounded p-4">
-                        <nav>
-                            <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-                                <button class="nav-link fw-semi-bold active" id="nav-story-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-story" type="button" role="tab" aria-controls="nav-story"
-                                    aria-selected="true">What We Do</button>
-                                <button class="nav-link fw-semi-bold" id="nav-mission-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-mission" type="button" role="tab" aria-controls="nav-mission"
-                                    aria-selected="false">Our Services</button>
-                                <button class="nav-link fw-semi-bold" id="nav-vision-tab" data-bs-toggle="tab"
-                                    data-bs-target="#nav-vision" type="button" role="tab" aria-controls="nav-vision"
-                                    aria-selected="false">Exclusive VIP</button>
-                            </div>
-                        </nav>
-                        <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-story" role="tabpanel"
-                                aria-labelledby="nav-story-tab">
-                                <p><strong>ARBYVEST</strong> handles all the foreign currency trading process within days,
-                                    and you will get the black-market value after a successful sale to your local currency
-                                    account.</p>
-                            </div>
-                            <div class="tab-pane fade" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
-                                <p><strong>ARBYVEST</strong> as a unique Foreign Currency Trading platform would help you
-                                    source for 🇺🇸 USD &amp;&nbsp; 🇬🇧 GBP at our South Africa e-wallet platform rates, at
-                                    good rates, and also help you sell it at black-market rates in your local Rand &amp;
-                                    Naira rates, all in one foreign currency trading platform.</p>
-                            </div>
-                            <div class="tab-pane fade" id="nav-vision" role="tabpanel" aria-labelledby="nav-vision-tab">
-                                <p>On <strong>ARBYVEST</strong>, you can be one of our private members. You get to be
-                                    entitled to some exclusive VIP offers, benefits, and welfare from
-                                    <strong>ARBYVEST</strong> monthly. If you reach any of the below total monthly
-                                    transactions on <strong>ARBYVEST</strong>, you are entitled to claim the benefits
-                                    attached.
-                                </p>
-                            </div>
+            <div class="banner__wrapper">
+                <div class="row gy-5 gx-3 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="banner__content" data-aos="fade-right" data-aos-duration="1000">
+                            <p>growing trading platform</p>
+                            <h1 class="banner__content-heading">grow your business with our Trustworthy platform</h1>
+                            <a href="signin.html" class="trk-btn trk-btn--tertiary mt-4">Start trading</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="border rounded p-4 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="row g-4">
-                    <div class="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="h-100">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
-                                    <i class="fa fa-times text-white"></i>
-                                </div>
-                                <div class="ps-3">
-                                    <h4>No Hidden Charges</h4>
-                                    <span>We'll only charge 10% reasonable market fees (lowest ever) for your sales and
-                                        exchange.</span>
-                                </div>
-                                <div class="border-end d-none d-lg-block"></div>
-                            </div>
-                            <div class="border-bottom mt-4 d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                        <div class="h-100">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
-                                    <i class="fa fa-users text-white"></i>
-                                </div>
-                                <div class="ps-3">
-                                    <h4>Dedicated Experts</h4>
-                                    <span>We source for USD & GBP at our South Africa e-wallet platform rates for your
-                                        sales.</span>
-                                </div>
-                                <div class="border-end d-none d-lg-block"></div>
-                            </div>
-                            <div class="border-bottom mt-4 d-block d-lg-none"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="h-100">
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
-                                    <i class="fa fa-phone text-white"></i>
-                                </div>
-                                <div class="ps-3">
-                                    <h4>24/7 Support Service</h4>
-                                    <span>We deliver top-notch Support Consultancy Services to our private members with
-                                        speed.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-
-    <!-- Facts Start -->
-    <div class="container-fluid facts my-5 py-5">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
-                    <i class="fa fa-users fa-3x text-white mb-3"></i>
-                    <h1>Over</h1>
-                    <h1 class="display-4 text-white" data-toggle="counter-up">50000</h1>
-                    <span class="fs-5 text-white">Happy Members</span>
-                    <hr class="bg-white w-25 mx-auto mb-0">
-                </div>
-                <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-                    <i class="fa fa-check fa-3x text-white mb-3"></i>
-                    <h1>Over</h1>
-                    <h1 class="display-4 text-white" data-toggle="counter-up">3000000</h1>
-                    <span class="fs-5 text-white">Trades Completed</span>
-                    <hr class="bg-white w-25 mx-auto mb-0">
-                </div>
-                <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-                    <i class="fa fa-users-cog fa-3x text-white mb-3"></i>
-                    <h1>Over</h1>
-                    <h1 class="display-4 text-white" data-toggle="counter-up">412</h1>
-                    <span class="fs-5 text-white">Dedicated Experts</span>
-                    <hr class="bg-white w-25 mx-auto mb-0">
-                </div>
-                <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-                    <i class="fa fa-award fa-3x text-white mb-3"></i>
-                    <h1>Over</h1>
-                    <h1 class="display-4 text-white" data-toggle="counter-up">26</h1>
-                    <span class="fs-5 text-white">Awards & Certifications</span>
-                    <hr class="bg-white w-25 mx-auto mb-0">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Facts End -->
-
-
-    <!-- Features Start -->
-    <div class="container-xxl feature py-5">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Why You Should Choose
-                        ARBYVEST!</p>
-                    <h1 class="display-5 mb-4">Reasons Why People Choose ARBYVEST!</h1>
-                    <p><strong>ARBYVEST</strong> Foreign Currencies Trading Platform involves buying a currency that you
-                        will eventually sell for profit. That is the sole aim and goal.</p>
-                    <p>With <strong>ARBYVEST</strong>, you can as well do this by buying Foreign Currencies such as USD or
-                        GBP from our South Africa e-wallet market rates and selling them at your local currencies' black
-                        market rates in Rand or in Naira on our platform. <strong><em>We've come to bridge the gap of buying
-                                and selling foreign currencies under one umbrella.</em></strong></p>
-                    <a class="btn btn-primary py-3 px-5" href="https://arbyvest.com/app/register">Start Trading Now!</a>
-                </div>
-                <div class="col-lg-6">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-md-6">
-                            <div class="row g-4">
-                                <div class="col-12 wow fadeIn" data-wow-delay="0.3s">
-                                    <div class="feature-box border rounded p-4">
-                                        <i class="fa fa-check fa-3x text-primary mb-3"></i>
-                                        <h4 class="mb-3">Fast Executions</h4>
-                                        <p class="mb-3">Experience the superb-power of our vast network that processes
-                                            your transaction with speed and reliability.</p>
-                                        <a class="fw-semi-bold" href="https://arbyvest.com/app/register">Trade Now!<i
-                                                class="fa fa-arrow-right ms-1"></i></a>
-                                    </div>
-                                </div>
-                                <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
-                                    <div class="feature-box border rounded p-4">
-                                        <i class="fa fa-check fa-3x text-primary mb-3"></i>
-                                        <h4 class="mb-3">24/7 Support</h4>
-                                        <p class="mb-3">Superb top-notch Support Consultancy Services to our private
-                                            members with speed.</p>
-                                        <a class="fw-semi-bold" href="https://arbyvest.com/app/register">Trade Now!<i
-                                                class="fa fa-arrow-right ms-1"></i></a>
+                        <div class="banner__testimonial">
+                            <div class="banner__testimonial-inner">
+                                <div class="testimonial__slider3 swiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="testimonial__item testimonial__item--style3">
+                                                <div class="testimonial__item-inner">
+                                                    <div class="testimonial__item-body">
+                                                        <div class="testimonial__item-content">
+                                                            <p class="mb-0">
+                                                                “It's the art of interpreting possibilities and
+                                                                embracing opportunities that shape your
+                                                                financial journey.”
+                                                            </p>
+                                                        </div>
+                                                        <div class="testimonial__item-quote">
+                                                            <span><i class="fa-solid fa-quote-right"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="testimonial__item-footer">
+                                                        <div class="testimonial__author">
+                                                            <div class="testimonial__author-thumb">
+                                                                <img src="{{ asset('asset/new_front/images/testimonial/3.png') }}"
+                                                                    alt="author">
+                                                            </div>
+                                                            <div
+                                                                class="testimonial__author-designation testimonial__author-designation--style2">
+                                                                <p>Mobarok Hossain</p>
+                                                                <span>Product Designer</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="testimonial__item testimonial__item--style3">
+                                                <div class="testimonial__item-inner">
+                                                    <div class="testimonial__item-body">
+                                                        <div class="testimonial__item-content">
+                                                            <p class="mb-0">
+                                                                “Crafting your financial path revolves around the skill
+                                                                of deciphering possibilities and
+                                                                wholeheartedly opportunities.”
+                                                            </p>
+                                                        </div>
+                                                        <div class="testimonial__item-quote">
+                                                            <span><i class="fa-solid fa-quote-right"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="testimonial__item-footer">
+                                                        <div class="testimonial__author">
+                                                            <div class="testimonial__author-thumb">
+                                                                <img src="{{ asset('asset/new_front/images/testimonial/1.png') }}"
+                                                                    alt="author">
+                                                            </div>
+                                                            <div
+                                                                class="testimonial__author-designation testimonial__author-designation--style2">
+                                                                <p>Nasir Mahmud</p>
+                                                                <span>UI/UX Designer</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="testimonial__item testimonial__item--style3">
+                                                <div class="testimonial__item-inner">
+                                                    <div class="testimonial__item-body">
+                                                        <div class="testimonial__item-content">
+                                                            <p class="mb-0">
+                                                                “Interpreting possibilities and seizing opportunities
+                                                                are the cornerstone of shaping
+                                                                your financial journey.”
+                                                            </p>
+                                                        </div>
+                                                        <div class="testimonial__item-quote">
+                                                            <span><i class="fa-solid fa-quote-right"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="testimonial__item-footer">
+                                                        <div class="testimonial__author">
+                                                            <div class="testimonial__author-thumb">
+                                                                <img src="{{ asset('asset/new_front/images/testimonial/2.png') }}"
+                                                                    alt="author">
+                                                            </div>
+                                                            <div
+                                                                class="testimonial__author-designation testimonial__author-designation--style2">
+                                                                <p>Dang Xuan</p>
+                                                                <span>Project Designer</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.7s">
-                            <div class="feature-box border rounded p-4">
-                                <i class="fa fa-check fa-3x text-primary mb-3"></i>
-                                <h4 class="mb-3">Financial Secuity & Payouts</h4>
-                                <p class="mb-3">No Need to worry about your funds, sales and transactions. Everything is
-                                    secured with our segregated 256bit SSL Security and Robust Data network security with
-                                    optimum FAST PAYOUTS!</p>
-                                <a class="fw-semi-bold" href="https://arbyvest.com/app/register">Trade Now!<i
-                                        class="fa fa-arrow-right ms-1"></i></a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="banner__thumb">
+                                    <div class="banner__thumb-inner">
+                                        <img src="{{ asset('asset/new_front/images/banner/home5/1.png') }}"
+                                            alt="banner-thumb">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="banner__shorttext1">
+                                    <p>Every decision you make is a step toward your financial destiny.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="banner__thumb2">
+                            <div class="banner__thumb2-inner">
+                                <img src="{{ asset('asset/new_front/images/banner/home5/2.png') }}" alt="banner thumb">
+                                <p>Trade with knowledge, patience and strategy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner__shape">
+            <span class="banner__shape-item banner__shape-item--6"><img
+                    src="{{ asset('asset/new_front/images/banner/shape/4.png') }}" alt="shape icon"></span>
+            <span class="banner__shape-item banner__shape-item--7"><img
+                    src="{{ asset('asset/new_front/images/banner/shape/3.png') }}" alt="shape icon"></span>
+        </div>
+
+    </section>
+    <!-- ===============>> Banner section end here <<================= -->
+
+    <!-- ===============>> partner section start here <<================= -->
+    <div class="partner partner--style2">
+        <div class="container">
+            <div class="partner__wrapper">
+                <div class="partner__slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="partner__item">
+                                <div class="partner__item-inner">
+                                    <img src="{{ asset('asset/new_front/images/partner/home5/1.png') }}" alt="partner logo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="partner__item">
+                                <div class="partner__item-inner">
+                                    <img src="{{ asset('asset/new_front/images/partner/home5/2.png') }}" alt="partner logo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="partner__item">
+                                <div class="partner__item-inner">
+                                    <img src="{{ asset('asset/new_front/images/partner/home5/6.png') }}" alt="partner logo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="partner__item">
+                                <div class="partner__item-inner">
+                                    <img src="{{ asset('asset/new_front/images/partner/home5/4.png') }}"
+                                        alt="partner logo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="partner__item">
+                                <div class="partner__item-inner">
+                                    <img src="{{ asset('asset/new_front/images/partner/home5/5.png') }}"
+                                        alt="partner logo">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="partner__item">
+                                <div class="partner__item-inner">
+                                    <img src="{{ asset('asset/new_front/images/partner/home5/3.png') }}"
+                                        alt="partner logo">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -273,135 +213,169 @@
             </div>
         </div>
     </div>
-    <!-- Features End -->
+    <!-- ===============>> partner section end here <<================= -->
 
-
-    <!-- Service Start -->
-    <div class="container-xxl service py-5">
+    <!-- ===============>> About section start here <<================= -->
+    <section class="about about--style3 padding-top padding-bottom ">
         <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Our Services</p>
-                <h1 class="display-5 mb-5">What We Do At ARBYVEST!</h1>
-            </div>
-            <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="col-lg-4">
-                    <div class="nav nav-pills d-flex justify-content-between w-100 h-100 me-4">
-                        <button class="nav-link w-100 d-flex align-items-center text-start border p-4 mb-4 active"
-                            data-bs-toggle="pill" data-bs-target="#tab-pane-1" type="button">
-                            <h5 class="m-0"><i class="fa fa-bars text-primary me-3"></i>Foreign Currencies & Trading
-                            </h5>
-                        </button>
-                        <button class="nav-link w-100 d-flex align-items-center text-start border p-4 mb-4"
-                            data-bs-toggle="pill" data-bs-target="#tab-pane-2" type="button">
-                            <h5 class="m-0"><i class="fa fa-bars text-primary me-3"></i>Black-Market (Local) Sales</h5>
-                        </button>
-                        <button class="nav-link w-100 d-flex align-items-center text-start border p-4 mb-4"
-                            data-bs-toggle="pill" data-bs-target="#tab-pane-3" type="button">
-                            <h5 class="m-0"><i class="fa fa-bars text-primary me-3"></i>Our Foreign Currencies Agents
-                                Consultancy</h5>
-                        </button>
-                        <button class="nav-link w-100 d-flex align-items-center text-start border p-4 mb-0"
-                            data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button">
-                            <h5 class="m-0"><i class="fa fa-bars text-primary me-3"></i>Business Loans</h5>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="tab-content w-100">
-                        <div class="tab-pane fade show active" id="tab-pane-1">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute rounded w-100 h-100"
-                                            src="https://arbyvest.com/asset/front/img/uploads/staff-office-arbyvest.png"
-                                            style="object-fit: cover;" alt="">
+            <div class="about__wrapper">
+                <div class="row g-5 align-items-center justify-content-between">
+                    <div class="col-md-6">
+                        <div class="about__thumb about__thumb--style3" data-aos="fade-right" data-aos-duration="800">
+                            <div class="about__thumb-inner">
+                                <div class="about__thumb-image text-center floating-content">
+                                    <img src="{{ asset('asset/new_front/images/about/home5/2.png') }}" alt="about-image">
+                                    <div class="floating-content__top-right floating-content__top-right--style3"
+                                        data-aos="fade-up" data-aos-duration="1000">
+                                        <div class="floating-content__item floating-content__item--style6">
+                                            <h3> <span class="purecounter" data-purecounter-start="0"
+                                                    data-purecounter-end="90"></span>%
+                                            </h3>
+                                            <p>Satisfied clients</p>
+
+                                            <div class="progress">
+                                                <div class="progress-bar--style2 w-75" role="progressbar"
+                                                    aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <h3 class="mb-4">South Africa based Foreign Currency - Dollars & Pounds Trading for
-                                        Rand & Naira</h3>
-                                    <p><strong>At ARBYVEST</strong>, you can be buying Foreign Currencies such as USD or GBP
-                                        from our South Africa e-wallet market rates and sell them at your local currencies'
-                                        black market rates in Rand or in Naira on our platform. <em>We've come to bridge the
-                                            gap of buying and selling foreign currencies under one umbrella.</em></p>
-                                    <p><strong>ARBYVEST</strong> Foreign Currencies Trading Platform involves buying a
-                                        currency that you will eventually sell for profit. That is the sole aim and goal.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="about__content" data-aos="fade-left" data-aos-duration="800">
+                            <h2>our Commitment to help growing your business</h2>
+                            <ul>
+                                <li><span><img src="{{ asset('asset/new_front/images/about/home5/check.png') }}"
+                                            alt="check" class="dark"></span> Building a Better Trading
+                                    Future</li>
+                                <li><span><img src="{{ asset('asset/new_front/images/about/home5/check.png') }}"
+                                            alt="check" class="dark"></span> Provide a Trading
+                                    Experience</li>
+                                <li><span><img src="{{ asset('asset/new_front/images/about/home5/check.png') }}"
+                                            alt="check" class="dark"></span> The Experts Behind Your
+                                    Success</li>
+                                <li><span><img src="{{ asset('asset/new_front/images/about/home5/check.png') }}"
+                                            alt="check" class="dark"></span> Empowering Traders
+                                    Worldwide</li>
+                            </ul>
+                            <a href="team.html" class="trk-btn  trk-btn--tertiary">Meet our experts</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===============>> About section start here <<================= -->
+
+    <!-- ===============>> Service section start here <<================= -->
+    <section class="service padding-top padding-bottom bg-color-7">
+        <div class="section-header section-header--max50">
+            <h2 class="mb-10 mt-minus-5">services We offer</h2>
+            <p>We offer the best services around - from installations to repairs, maintenance, and more!</p>
+        </div>
+        <div class="container">
+            <div class="service__wrapper">
+                <div class="row g-4 align-items-center">
+                    <div class="col-sm-6 col-md-6 col-lg-4">
+                        <div class="service__item service__item--style3" data-aos="fade-up" data-aos-duration="800">
+                            <div class="service__item-inner text-center">
+                                <div class="service__item-thumb  mb-30">
+                                    <img src="{{ asset('asset/new_front/images/service/home5/1.png') }}"
+                                        alt="service-icon">
+                                </div>
+                                <div class="service__item-content">
+                                    <h5> <a class="stretched-link" href="service-details.html">Strategy Consulting</a>
+                                    </h5>
+                                    <p class="mb-0">A social assistant that's flexible can accommodate your schedule
+                                        and needs, making
+                                        life easier.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="service__item service__item--style3" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="service__item-inner text-center">
+                                <div class="service__item-thumb mb-30">
+                                    <img src="{{ asset('asset/new_front/images/service/home5/2.png') }}"
+                                        alt="service-icon">
+                                </div>
+                                <div class="service__item-content">
+                                    <h5> <a class="stretched-link" href="service-details.html"> Financial Advisory</a>
+                                    </h5>
+                                    <p class="mb-0">Modules transform smart trading by automating processes and
+                                        improving decision-making.
                                     </p>
-                                    <p>&nbsp;</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="tab-pane-2">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute rounded w-100 h-100"
-                                            src="https://arbyvest.com/asset/front/img/uploads/theservice2.jpg"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="service__item service__item--style3" data-aos="fade-up" data-aos-duration="1200">
+                            <div class="service__item-inner text-center">
+                                <div class="service__item-thumb mb-30">
+                                    <img src="{{ asset('asset/new_front/images/service/home5/3.png') }}"
+                                        alt="service-icon">
                                 </div>
-                                <div class="col-md-6">
-                                    <h3 class="mb-4">Robust Private source of Foreign Currencies using South African
-                                        e-wallet system for Rand & Naira instantly.</h3>
-                                    <p>Let's help you source for 🇺🇸 USD &amp;&nbsp; 🇬🇧 GBP at our South Africa e-wallet
-                                        platform rates, at good rates, and also help you sell it at black-market rates in
-                                        your local Rand &amp; Naira rates, all in one foreign currency trading
-                                        platform.<strong> ARBYVEST is for South African &amp; Nigerian Traders.</strong></p>
+                                <div class="service__item-content">
+                                    <h5> <a class="stretched-link" href="service-details.html">Management</a> </h5>
+                                    <p class="mb-0">There, it's me, your friendly neighborhood reporter's news
+                                        analyst processes and
+                                        improving</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="tab-pane-3">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute rounded w-100 h-100"
-                                            src="https://arbyvest.com/asset/front/img/uploads/service5.jpg"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="service__item service__item--style3" data-aos="fade-up" data-aos-duration="800">
+                            <div class="service__item-inner text-center">
+                                <div class="service__item-thumb mb-30">
+                                    <img src="{{ asset('asset/new_front/images/service/home5/4.png') }}"
+                                        alt="service-icon">
                                 </div>
-                                <div class="col-md-6">
-                                    <h3 class="mb-4">Earn an extra $1000 or £1000 Monthly as one of our Foreign Currency
-                                        Agents!</h3>
-                                    <p>By transferring &amp; selling Foreign Currencies to your friends and associates.</p>
-                                    <p><em><strong>Want to make a 3% commission by selling our Foreign Currencies to your
-                                                friends, family, and associates?</strong></em></p>
-                                    <p>Want to become one of ARBYVEST's Foreign Currency Agents?</p>
-                                    <p><span style="text-decoration: underline;"><strong>Want to make an extra $1000 or
-                                                &pound;1000 Monthly?</strong></span></p>
-                                    <p>Then join ARBYVEST Foreign Currency Agents and make an extra income transferring and
-                                        selling foreign currencies.</p>
-                                    <a href="https://arbyvest.com/foreign-currency-resellers"
-                                        class="btn btn-primary py-3 px-5 mt-3">Join ARBYVEST's AGENTS!</a>
+                                <div class="service__item-content">
+                                    <h5> <a class="stretched-link" href="service-details.html">Supply Optimization
+                                        </a>
+                                    </h5>
+                                    <p class="mb-0">Hey, have you checked out that new cryptocurrency platform? It's
+                                        pretty cool and easy
+                                        to use!</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="tab-pane-4">
-                            <div class="row g-4">
-                                <div class="col-md-6" style="min-height: 350px;">
-                                    <div class="position-relative h-100">
-                                        <img class="position-absolute rounded w-100 h-100"
-                                            src="https://arbyvest.com/asset/front/img/uploads/service4.jpg"
-                                            style="object-fit: cover;" alt="">
-                                    </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="service__item service__item--style3" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="service__item-inner text-center">
+                                <div class="service__item-thumb mb-30">
+                                    <img src="{{ asset('asset/new_front/images/service/home5/5.png') }}"
+                                        alt="service-icon">
                                 </div>
-                                <div class="col-md-6">
-                                    <h3 class="mb-4">Quick Business Loans to $100,000</h3>
-                                    <p>Easy access to our Business Loans through our digital application forms and automated
-                                        repayment process. Top-up is available. If you need additional financing during your
-                                        course of your active loan, you may also request.</p>
-                                    <p><strong>Access Quick Business Loans to $100,000</strong></p>
-                                    <p><span class="fe5nidar khvhiq1o r5qsrrlp i5tg98hk f9ovudaz przvwfww gx1rr48f gfz4du6o r7fjleex nz2484kf svot0ezm dcnh1tix sxl192xd t3g6t33p"
-                                            style="background-image: url('/img/2617e32ba41ae37a81350005624747b8_w_155-40.png');"><span
-                                                class="mpj7bzys xzlurrtv">✅</span></span>Must have transacted up to 50% of
-                                        the Loan amount required</p>
-                                    <p><span class="fe5nidar khvhiq1o r5qsrrlp i5tg98hk f9ovudaz przvwfww gx1rr48f gfz4du6o r7fjleex nz2484kf svot0ezm dcnh1tix sxl192xd t3g6t33p"
-                                            style="background-image: url('/img/2617e32ba41ae37a81350005624747b8_w_155-40.png');"><span
-                                                class="mpj7bzys xzlurrtv">✅</span></span>Affordable interest rate</p>
-                                    <p><span class="fe5nidar khvhiq1o r5qsrrlp i5tg98hk f9ovudaz przvwfww gx1rr48f gfz4du6o r7fjleex nz2484kf svot0ezm dcnh1tix sxl192xd t3g6t33p"
-                                            style="background-image: url('/img/2617e32ba41ae37a81350005624747b8_w_155-40.png');"><span
-                                                class="mpj7bzys xzlurrtv">✅</span></span>Quick processing time</p>
-                                    <a href="https://arbyvest.com/contact" class="btn btn-primary py-3 px-5 mt-3">Contact
-                                        Us</a>
+                                <div class="service__item-content">
+                                    <h5> <a class="stretched-link" href="service-details.html">HR consulting</a> </h5>
+                                    <p class="mb-0">Hey guys, just a quick update on exchange orders. There have been
+                                        some changes
+                                        currency!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="service__item service__item--style3" data-aos="fade-up" data-aos-duration="1200">
+                            <div class="service__item-inner text-center">
+                                <div class="service__item-thumb mb-30">
+                                    <img src="{{ asset('asset/new_front/images/service/home5/6.png') }}"
+                                        alt="service-icon">
+                                </div>
+                                <div class="service__item-content">
+                                    <h5> <a class="stretched-link" href="service-details.html">Marketing
+                                            consulting</a>
+                                    </h5>
+                                    <p class="mb-0">Hey! Just wanted to let you know that the price notification
+                                        module processes is now
+                                        live changes trading!</p>
                                 </div>
                             </div>
                         </div>
@@ -409,94 +383,610 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Service End -->
 
-    <!-- Latest Updates Start -->
-    <div class="container-xxl latest-updates py-5">
-        <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Latest Updates</p>
-                {{-- <h1 class="display-5 mb-5">What We Do At ARBYVEST!</h1> --}}
-            </div>
-            <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="col-lg-6">
-                    <h4 class="text-center">Latest Registrations</h4>
-                    <table class="table table-responsive table-striped text-center">
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Account ID</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if ($registrations)
-                                @foreach ($registrations as $item)
-                                    <tr>
-                                        <td>{{ $item->name }}</td>
-                                        <th class="text-uppercase" style="vertical-align: middle">{{ $item->account_id }}</th>
-                                    </tr>
-                                @endforeach
-                            @endif
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-lg-6">
-                    <h4 class="text-center">Latest Payouts</h4>
-                    <table class="table table-responsive table-striped text-center">
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Amount</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if ($whithdraws)
-                                @foreach ($whithdraws as $item)
-                                    <tr>
-                                        <td>{{ $item->user->name ?? 'N/A' }}</td>
-                                        <th class="text-uppercase" style="vertical-align: middle">{{ '₦' . number_format($item->amount, 2) }}</th>
-                                    </tr>
-                                @endforeach
-                            @endif
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    </section>
+    <!-- ===============>> Service section start here <<================= -->
+
+    <!-- ===============>> Pricing section start here <<================= -->
+    <section class="pricing padding-top padding-bottom bg--cover"
+        style="background-image:url({{ asset('asset/new_front/images/pricing/bg.png') }})">
+        <div class="section-header section-header--max50">
+            <h2 class="mb-10 mt-minus-5">Our pricings plan</h2>
+            <p>We offer the best pricings around - from installations to repairs, maintenance, and more!</p>
         </div>
-    </div>
-    <!-- Latest Updates End -->
-
-
-    <!-- Projects Start -->
-    <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Blogs</p>
-                <h1 class="display-5 mb-5">Latest Blog Updates</h1>
-            </div>
-            <div class="owl-carousel project-carousel wow fadeInUp" data-wow-delay="0.3s">
-                @if ($blogs->isNotEmpty())
-                    @foreach ($blogs as $item)
-                        <div class="project-item pe-5 pb-5">
-                            <div class="project-img mb-3">
-                                <img class="img-fluid rounded" src="{{ asset('asset/images/' . $item->image) }}"
-                                    alt="">
-                                <a href="{{ route('front.blog', [$item->id, Str::of($item->title)->slug('-')]) }}"><i
-                                        class="fa fa-link fa-3x text-primary"></i></a>
-                            </div>
-                            <div class="project-title">
-                                <h4 class="mb-0">{{ $item->title }}</h4>
+            <div class="pricing__wrapper">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="pricing__item pricing__item--style2" data-aos="fade-right" data-aos-duration="1000">
+                            <div class="pricing__item-inner">
+                                <div class="pricing__item-content">
+
+                                    <!-- pricing top part -->
+                                    <div class="pricing__item-top">
+                                        <h6 class="mb-15">Basic</h6>
+                                        <h3 class="mb-25">$99/<span>Monthly</span> </h3>
+                                    </div>
+
+                                    <!-- pricing middle part -->
+                                    <div class="pricing__item-middle">
+                                        <ul class="pricing__list">
+                                            <li class="pricing__list-item"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check" class="dark"></span>
+                                                Weekly online meeting</li>
+                                            <li class="pricing__list-item"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check" class="dark"></span>
+                                                Unlimited learning access</li>
+                                            <li class="pricing__list-item pricing__list-item--mute"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check" class="dark"></span>
+                                                24/7 technical support</li>
+                                            <li class="pricing__list-item pricing__list-item--mute"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check" class="dark"></span>
+                                                Personal training</li>
+                                        </ul>
+
+                                    </div>
+
+                                    <!-- pricing bottom part -->
+                                    <div class="pricing__item-bottom">
+                                        <a href="signup.html" class="trk-btn trk-btn--outline6">Choose Plan</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    @endforeach
-                @endif
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="pricing__item pricing__item--style2" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="pricing__item-inner active">
+                                <div class="pricing__item-content">
+
+                                    <!-- pricing top part -->
+                                    <div class="pricing__item-top">
+                                        <h6 class="mb-15">standard</h6>
+                                        <h3 class="mb-25">$149/<span>Monthly</span> </h3>
+                                    </div>
+
+                                    <!-- pricing middle part -->
+                                    <div class="pricing__item-middle">
+                                        <ul class="pricing__list">
+                                            <li class="pricing__list-item"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check"></span>
+                                                Weekly online meeting</li>
+                                            <li class="pricing__list-item"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check"></span>
+                                                Unlimited learning access</li>
+                                            <li class="pricing__list-item"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check"></span>
+                                                24/7 technical support</li>
+                                            <li class="pricing__list-item"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check"></span>
+                                                Personal training</li>
+                                            <li class="pricing__list-item"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check"></span>
+                                                Business analysis</li>
+                                        </ul>
+
+                                    </div>
+
+                                    <!-- pricing bottom part -->
+                                    <div class="pricing__item-bottom">
+                                        <a href="signup.html" class="trk-btn trk-btn--outline6 active">Choose Plan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="pricing__item pricing__item--style2" data-aos="fade-left" data-aos-duration="1000">
+                            <div class="pricing__item-inner">
+                                <div class="pricing__item-content">
+
+                                    <!-- pricing top part -->
+                                    <div class="pricing__item-top">
+                                        <h6 class="mb-15">premium</h6>
+                                        <h3 class="mb-25">$199/<span>Monthly</span> </h3>
+                                    </div>
+
+                                    <!-- pricing middle part -->
+                                    <div class="pricing__item-middle">
+                                        <ul class="pricing__list">
+                                            <li class="pricing__list-item"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check" class="dark"></span>
+                                                With all standard features</li>
+                                            <li class="pricing__list-item"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check" class="dark"></span>
+                                                Unlimited learning access</li>
+                                            <li class="pricing__list-item"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check" class="dark"></span>
+                                                24/7 technical support</li>
+                                            <li class="pricing__list-item"><span><img
+                                                        src="{{ asset('asset/new_front/images/icon/check1.svg') }}"
+                                                        alt="check" class="dark"></span>
+                                                Personal training</li>
+                                        </ul>
+
+                                    </div>
+
+                                    <!-- pricing bottom part -->
+                                    <div class="pricing__item-bottom">
+                                        <a href="signup.html" class="trk-btn trk-btn--outline6">Choose Plan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Projects End -->
+        <div class="pricing__shape">
+            <span class="pricing__shape-item pricing__shape-item--5"> <img
+                    src="{{ asset('asset/new_front/images/icon/shape/3.png') }}" alt="shape-icon"></span>
+            <span class="pricing__shape-item pricing__shape-item--6"> <img
+                    src="{{ asset('asset/new_front/images/icon/shape/1.png') }}" alt="shape-icon">
+            </span>
+        </div>
+    </section>
+    <!-- ===============>> Pricing section start here <<================= -->
 
+    <!-- ===============>> Testimonial section start here <<================= -->
+    <section class="testimonial padding-top padding-bottom-style2 bg-color">
+        <div class="container">
+            <div class="section-header d-md-flex align-items-center justify-content-between">
+                <div class="section-header__content">
+                    <h2 class="mb-10">Meet our Clients</h2>
+                    <p class="mb-0">We love connecting with our clients to hear about their experiences and how we
+                        can improve.
+                    </p>
+                </div>
+                <div class="section-header__action">
+                    <div class="swiper-nav">
+                        <button class="swiper-nav__btn  swiper-nav__btn--style3 testimonial__slider-prev"><i
+                                class="fa-solid fa-angle-left"></i></button>
+                        <button class="swiper-nav__btn swiper-nav__btn--style3 testimonial__slider-next active"><i
+                                class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial__wrapper" data-aos="fade-up" data-aos-duration="1000">
+                <div class="testimonial__slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="testimonial__item testimonial__item--style4">
+                                <div class="testimonial__item-inner">
+                                    <div class="testimonial__item-content">
+                                        <p class="mb-0">
+                                            The above testimonial is about Martha Chumo, who taught herself to code in
+                                            one summer. This
+                                            testimonial example works because it allows prospective customers to see
+                                            themselves in
+                                            Codeacademy’s current customer base.
+                                        </p>
+                                        <div class="testimonial__footer">
+                                            <div class="testimonial__author">
+                                                <div class="testimonial__author-thumb">
+                                                    <img src="{{ asset('asset/new_front/images/testimonial/1.png') }}"
+                                                        alt="author">
+                                                </div>
+                                                <div class="testimonial__author-designation">
+                                                    <h6>Mobarok Hossain</h6>
+                                                    <span>Trade Master</span>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial__quote testimonial__quote--style2">
+                                                <span><i class="fa-solid fa-quote-right"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial__item testimonial__item--style4">
+                                <div class="testimonial__item-inner">
+                                    <div class="testimonial__item-content">
+                                        <p class="mb-0">
+                                            In the above testimonial, a customer named Jeanine shares her experience
+                                            with Briogeo’s products.
+                                            While the post is scattered with too many product mentions, it takes full
+                                            advantage of its real
+                                            estate by allowing the writer to tell
+                                        </p>
+                                        <div class="testimonial__footer">
+                                            <div class="testimonial__author">
+                                                <div class="testimonial__author-thumb">
+                                                    <img src="{{ asset('asset/new_front/images/testimonial/2.png') }}"
+                                                        alt="author">
+                                                </div>
+                                                <div class="testimonial__author-designation">
+                                                    <h6>Guy Hawkins</h6>
+                                                    <span>Trade Boss</span>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial__quote testimonial__quote--style2">
+                                                <span><i class="fa-solid fa-quote-right"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="testimonial__item testimonial__item--style4">
+                                <div class="testimonial__item-inner">
+                                    <div class="testimonial__item-content">
+                                        <p class="mb-0">
+                                            The above testimonial is about Martha Chumo, who taught herself to code in
+                                            one summer. This
+                                            testimonial example works because it allows prospective customers to see
+                                            themselves in
+                                            Codeacademy’s current customer base.
+                                        </p>
+                                        <div class="testimonial__footer">
+                                            <div class="testimonial__author">
+                                                <div class="testimonial__author-thumb">
+                                                    <img src="{{ asset('asset/new_front/images/testimonial/6.png') }}"
+                                                        alt="author">
+                                                </div>
+                                                <div class="testimonial__author-designation">
+                                                    <h6>Belal Hossain</h6>
+                                                    <span>Trade Genius</span>
+                                                </div>
+                                            </div>
+                                            <div class="testimonial__quote testimonial__quote--style2">
+                                                <span><i class="fa-solid fa-quote-right"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===============>> Testimonial section start here <<================= -->
 
+    <!-- ===============>> FAQ section start here <<================= -->
+    <section class="faq padding-top padding-bottom of-hidden">
+        <div class="section-header section-header--max65">
+            <h2 class="mb-10 mt-minus-5">Frequently Asked questions</h2>
+            <p>Hey there! Got questions? We've got answers. Check out our FAQ page for all the deets. Still not
+                satisfied? Hit
+                us up.</p>
+        </div>
+        <div class="container">
+            <div class="faq__wrapper">
+                <div class="row g-5 align-items-center justify-content-between">
+                    <div class="col-lg-6">
+                        <div class="accordion accordion--style3" id="faqAccordion1" data-aos="fade-right"
+                            data-aos-duration="1000">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="accordion__item accordion-item">
+                                        <div class="accordion__header accordion-header" id="faq1">
+                                            <button class="accordion__button accordion-button accordion-button--style2"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#faqBody1"
+                                                aria-expanded="false" aria-controls="faqBody1">
+                                                <span class="accordion__button-content">What does this tool do?</span>
+                                            </button>
+                                        </div>
+                                        <div id="faqBody1" class="accordion-collapse collapse show"
+                                            aria-labelledby="faq1" data-bs-parent="#faqAccordion1">
+                                            <div class="accordion__body accordion-body">
+                                                <p class="mb-15">
+                                                    Online trading’s primary advantages are that it allows you to manage
+                                                    your trades at your
+                                                    convenience.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="accordion__item accordion-item">
+                                        <div class="accordion__header accordion-header" id="faq2">
+                                            <button
+                                                class="accordion-button accordion-button--style2 accordion__button collapsed"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#faqBody2"
+                                                aria-expanded="true" aria-controls="faqBody2">
+                                                <span class="accordion__button-content">What are the disadvantages of
+                                                    online trading?</span>
+                                            </button>
+                                        </div>
+                                        <div id="faqBody2" class="accordion-collapse collapse" aria-labelledby="faq2"
+                                            data-bs-parent="#faqAccordion1">
+                                            <div class="accordion__body accordion-body">
+                                                <p class="mb-15">
+                                                    You don’t need to worry, the interface is user-friendly. Anyone can
+                                                    use
+                                                    it smoothly. Our user manual will help you to solve your problem.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="accordion__item accordion-item">
+                                        <div class="accordion__header accordion-header" id="faq3">
+                                            <button
+                                                class="accordion-button accordion-button--style2 accordion__button collapsed"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#faqBody3"
+                                                aria-expanded="false" aria-controls="faqBody3">
+                                                <span class="accordion__button-content">Is online trading safe?</span>
+                                            </button>
+                                        </div>
+                                        <div id="faqBody3" class="accordion-collapse collapse" aria-labelledby="faq3"
+                                            data-bs-parent="#faqAccordion1">
+                                            <div class="accordion__body accordion-body">
+                                                <p class="mb-15"> Online trading’s primary advantages are that it
+                                                    allows you to manage your
+                                                    trades at your convenience.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="accordion__item accordion-item">
+                                        <div class="accordion__header accordion-header" id="faq4">
+                                            <button
+                                                class="accordion-button accordion-button--style2 accordion__button collapsed"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#faqBody4"
+                                                aria-expanded="false" aria-controls="faqBody4">
+                                                <span class="accordion__button-content">What is online trading, and how
+                                                    does it work?</span>
+                                            </button>
+                                        </div>
+                                        <div id="faqBody4" class="accordion-collapse collapse" aria-labelledby="faq4"
+                                            data-bs-parent="#faqAccordion1">
+                                            <div class="accordion__body accordion-body">
+                                                <p class="mb-15"> Online trading’s primary advantages are that it
+                                                    allows you to manage your
+                                                    trades at your convenience.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="accordion__item accordion-item">
+                                        <div class="accordion__header accordion-header" id="faq5">
+                                            <button
+                                                class="accordion-button accordion-button--style2 accordion__button collapsed"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#faqBody5"
+                                                aria-expanded="false" aria-controls="faqBody5">
+                                                <span class="accordion__button-content">Which app is best for online
+                                                    trading?</span>
+                                            </button>
+                                        </div>
+                                        <div id="faqBody5" class="accordion-collapse collapse" aria-labelledby="faq5"
+                                            data-bs-parent="#faqAccordion1">
+                                            <div class="accordion__body accordion-body">
+                                                <p class="mb-15"> Online trading’s primary advantages are that it
+                                                    allows you to manage your
+                                                    trades at your convenience.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="accordion__item border-0 accordion-item">
+                                        <div class="accordion__header accordion-header" id="faq6">
+                                            <button
+                                                class="accordion-button accordion-button--style2 accordion__button collapsed"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#faqBody6"
+                                                aria-expanded="false" aria-controls="faqBody6">
+                                                <span class="accordion__button-content"> How to create a trading
+                                                    account?</span>
+                                            </button>
+                                        </div>
+                                        <div id="faqBody6" class="accordion-collapse collapse" aria-labelledby="faq6"
+                                            data-bs-parent="#faqAccordion1">
+                                            <div class="accordion__body accordion-body">
+                                                <p class="mb-15"> Online trading’s primary advantages are that it
+                                                    allows you to manage your
+                                                    trades at your convenience.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="faq__thumb  text-center" data-aos="fade-left" data-aos-duration="1000">
+                            <img src="{{ asset('asset/new_front/images/others/4.png') }}" alt="faq-thumb">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="faq__shape">
+            <span class="faq__shape-item faq__shape-item--2"><img
+                    src="{{ asset('asset/new_front/images/icon/shape/2.png') }}" alt="shpae-icon"></span>
+            <span class="faq__shape-item faq__shape-item--3"><img
+                    src="{{ asset('asset/new_front/images/icon/shape/4.png') }}" alt="shpae-icon"></span>
+        </div>
+    </section>
+    <!-- ===============>> FAQ section start here <<================= -->
 
+    <!-- ===============>> Blog section start here <<================= -->
+    <section class="blog padding-top padding-bottom bg-color">
+        <div class="blog__bg">
+            <div class="blog__bg-element">
+                <img src="{{ asset('asset/new_front/images/blog/bg.png') }}" alt="section-bg-element" class="dark">
+            </div>
+        </div>
+        <div class="container">
+            <div class="section-header d-md-flex align-items-center justify-content-between">
+                <div class="section-header__content">
+                    <h2 class="mb-10">articles for pro traders</h2>
+                    <p class="mb-0">Hey there pro traders, check out these articles with tips to take your trading
+                        game to the
+                        next level!</p>
+                </div>
+                <div class="section-header__action">
+                    <div class="swiper-nav swiper-nav--style1">
+                        <button class="swiper-nav__btn swiper-nav__btn--style3 blog__slider-prev"><i
+                                class="fa-solid fa-angle-left"></i></button>
+                        <button class="swiper-nav__btn swiper-nav__btn--style3 blog__slider-next active"><i
+                                class="fa-solid fa-angle-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="blog__wrapper" data-aos="fade-up" data-aos-duration="1000">
+                <div class="blog__slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="blog__item blog__item--style3">
+                                <div class="blog__item-inner">
+                                    <div class="blog__thumb">
+                                        <img src="{{ asset('asset/new_front/images/blog/1.png') }}" alt="blog Images">
+                                    </div>
 
+                                    <div class="blog__content">
+                                        <div class="blog__meta">
+                                            <span class="blog__meta-tag blog__meta-tag--style1">Forex trading</span>
+                                        </div>
+                                        <h5 class="10"> <a href="blog-details.html">Swing Trading Definition</a>
+                                        </h5>
+
+                                        <p class="mb-15">Our platform is not only about trading—it's also a hub for
+                                            knowledge and learning.
+                                            We provide resources.</p>
+
+                                        <div class="blog__writer">
+                                            <div class="blog__writer-thumb">
+                                                <img src="{{ asset('asset/new_front/images/blog/author/1.png') }}"
+                                                    alt="writer">
+                                            </div>
+                                            <div class="blog__writer-designation">
+                                                <h6 class="mb-0">Vasha Gueye</h6>
+                                                <span>20/6/2024</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="blog__item blog__item--style3">
+                                <div class="blog__item-inner">
+                                    <div class="blog__thumb">
+                                        <img src="{{ asset('asset/new_front/images/blog/2.png') }}" alt="blog Images">
+                                    </div>
+
+                                    <div class="blog__content">
+                                        <div class="blog__meta">
+                                            <span class="blog__meta-tag blog__meta-tag--style1">Trading market</span>
+                                        </div>
+                                        <h5 class="10"> <a href="blog-details.html">hedge funds work?</a> </h5>
+
+                                        <p class="mb-15">To cater to your individual trading preferences, we offer a
+                                            variety of order types,
+                                            including market.</p>
+
+                                        <div class="blog__writer">
+                                            <div class="blog__writer-thumb">
+                                                <img src="{{ asset('asset/new_front/images/blog/author/2.png') }}"
+                                                    alt="writer">
+                                            </div>
+                                            <div class="blog__writer-designation">
+                                                <h6 class="mb-0">Abhivibha Kanmani</h6>
+                                                <span>30/5/2024</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="blog__item blog__item--style3">
+                                <div class="blog__item-inner">
+                                    <div class="blog__thumb">
+                                        <img src="{{ asset('asset/new_front/images/blog/3.png') }}" alt="blog Images">
+                                    </div>
+
+                                    <div class="blog__content">
+                                        <div class="blog__meta">
+                                            <span class="blog__meta-tag blog__meta-tag--style1">Investment</span>
+                                        </div>
+                                        <h5 class="10"> <a href="blog-details.html">Options Trading business?</a>
+                                        </h5>
+
+                                        <p class="mb-15">Security is our top priority, and we employ robust measures
+                                            to ensure the safety of
+                                            your funds.</p>
+
+                                        <div class="blog__writer">
+                                            <div class="blog__writer-thumb">
+                                                <img src="{{ asset('asset/new_front/images/blog/author/3.png') }}"
+                                                    alt="writer">
+                                            </div>
+                                            <div class="blog__writer-designation">
+                                                <h6 class="mb-0">Hulya Aydin</h6>
+                                                <span>12/07/2024</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="blogs.html" class="trk-btn trk-btn--tertiary mt-40">View more </a>
+            </div>
+        </div>
+
+    </section>
+    <!-- ===============>> Blog section start here <<================= -->
+
+    <!-- ===============>> cta section start here <<================= -->
+    <section class="cta padding-top padding-bottom">
+        <div class="container">
+            <div class="cta__wrapper">
+                <div class="cta__newsletter justify-content-center">
+                    <div class="cta__newsletter-inner cta__newsletter-inner--style3" data-aos="fade-up"
+                        data-aos-duration="1000">
+                        <div class="cta__thumb cta__thumb--style2">
+                            <img src="{{ asset('asset/new_front/images/cta/3.png') }}" alt="cta-thumb">
+                        </div>
+                        <div class="cta__subscribe">
+                            <h2 class="mb-0">Subscribe our news</h2>
+                            <p>Hey! Are you tired of missing out on our updates? Subscribe to our news now and stay in
+                                the loop!</p>
+                            <form class="cta-form cta-form--style2 form-subscribe" action="#">
+                                <div class="cta-form__inner d-sm-flex align-items-center">
+                                    <input type="email" class="form-control form-control--style3 mb-3 mb-sm-0"
+                                        placeholder="Email Address">
+                                    <button class="trk-btn  trk-btn--large trk-btn--secondary3"
+                                        type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="cta__shape">
+                    <span class="cta__shape-item cta__shape-item--1"><img
+                            src="{{ asset('asset/new_front/images/cta/2.png') }}" alt="shape icon"></span>
+                    <span class="cta__shape-item cta__shape-item--3"><img
+                            src="{{ asset('asset/new_front/images/cta/5.png') }}" alt="shape icon"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===============>> cta section start here <<================= -->
 @endsection
