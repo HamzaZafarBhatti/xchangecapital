@@ -10,7 +10,7 @@
         <li><strong>WhatsApp Number:</strong> {{ $trader->phone ?? 'N/A' }}</li>
         <li><strong>Phone Number:</strong> {{ $trader->phone ?? 'N/A' }}</li>
         <li><strong>Available USD Balance:</strong> {{ $trader->get_usd_wallet ?? 'N/A' }}</li>
-        <li><strong>Available GBP Balance:</strong> {{ $trader->get_gbp_wallet ?? 'N/A' }}</li>
+        <li><strong>Available GBP Balance:</strong> {{ $trader->get_sct_wallet ?? 'N/A' }}</li>
     </ul>
     <a href="{{ route('user.trader.verify') }}" type="button" class="btn btn-primary">Try Another</a>
 </div>

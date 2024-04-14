@@ -70,7 +70,7 @@ class AdminController extends Controller
                 ];
             } else {
                 $update_data = [
-                    'gbp_wallet' => $log->user->gbp_wallet + $log->amount_sold
+                    'sct_wallet' => $log->user->sct_wallet + $log->amount_sold
                 ];
             }
             $log->user->update($update_data);

@@ -125,7 +125,7 @@
                             <h5>My Wallets</h5>
                             <ul>
                                 <li>USD Wallet: {{ $user->get_usd_wallet }}</li>
-                                <li>GBP Wallet: {{ $user->get_gbp_wallet }}</li>
+                                <li>GBP Wallet: {{ $user->get_sct_wallet }}</li>
                                 <li>NGN Wallet: {{ $user->get_ngn_wallet }}</li>
                             </ul>
                         </div>

@@ -17,10 +17,10 @@ class SettingSeeder extends Seeder
     {
         //
         Setting::create([
-            'title' => 'Arbyvest',
-            'site_name' => 'Arbyvest',
+            'title' => 'XChangeCapital',
+            'site_name' => 'XChangeCapital',
             'site_desc' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, illo?',
-            'email' => 'admin@arbyvest.com',
+            'email' => 'admin@admin.com',
             'mobile' => '0123123123',
             'address' => 'Abc Street, XYZ City, JFK',
             'favicon' => 'favicon.jpg',

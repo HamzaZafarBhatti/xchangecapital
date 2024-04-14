@@ -48,7 +48,7 @@
                         <div class="form-check @if ($errors->get('currency')) is-invalid @endif">
                             <input type="radio" class="form-check-input" name="currency" id="gbp" value="gbp">
                             <label for="gbp" class="form-check-label pl-2">British Pounds
-                                ({{ auth()->user()->get_gbp_wallet }})</label>
+                                ({{ auth()->user()->get_sct_wallet }})</label>
                         </div>
                         @if ($errors->get('currency'))
                             <div class="invalid-feedback">

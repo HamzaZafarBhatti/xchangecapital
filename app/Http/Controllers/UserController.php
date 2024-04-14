@@ -118,18 +118,26 @@ class UserController extends Controller
         return view('user.market_rates', compact('market_prices'));
     }
 
-    public function fund_wallet()
+    public function merchants()
     {
-        $logs = FundWalletLog::where('user_id', auth()->user()->id)->latest()->get();
-        return view('user.fund_wallet', compact('logs'));
+        $vendors = User::role('Vendor')->get();
+        return view('user.merchants', compact('vendors'));
     }
 
-    public function do_fund_wallet(Request $request)
+    public function buy_capital($merchant_id)
     {
-        $request->validate([
+        $vendor = User::find($merchant_id);
+        return view('user.buy_capital', compact('vendor'));
+    }
+
+    public function do_buy_capital(Request $request)
+    {
+        $data = $request->validate([
             'amount' => 'required|integer',
-            'currency' => 'required',
+            'merchant_id' => 'required'
         ]);
+        $vendor = User::find($data['merchant_id']);
+        return view('user.buy_capital_preview', compact('vendor'));
         try {
             $user = auth()->user();
             $tx_ref = uniqid() . time();
@@ -258,7 +266,7 @@ class UserController extends Controller
             $bonus = $setting->usd_referral_bonus;
         } else {
             $data = [
-                'gbp_wallet' => $user->gbp_wallet + $log->requested_amount,
+                'sct_wallet' => $user->sct_wallet + $log->requested_amount,
             ];
             $bonus = $setting->gbp_referral_bonus;
         }
@@ -354,7 +362,7 @@ class UserController extends Controller
             if ($request->amount < $setting->min_deposit_by_vendor) {
                 return back()->with('error', 'Minimum amount to transfer is £' . $setting->min_deposit_by_vendor);
             }
-            if ($request->amount > $user->gbp_wallet) {
+            if ($request->amount > $user->sct_wallet) {
                 return back()->with('error', 'Your entered amount is more than your GBP balance');
             }
             $logdata['ref_id'] = Str::random(10);
@@ -362,13 +370,13 @@ class UserController extends Controller
             $logdata['currency'] = $request->currency;
             $logdata['amount'] = $request->amount;
             $logdata['user_account_id'] = strtolower($request->account_id);
-            $user_gbp_wallet = $user->gbp_wallet - $request->amount;
-            $customer_gbp_wallet = $customer->gbp_wallet + $request->amount;
+            $user_sct_wallet = $user->sct_wallet - $request->amount;
+            $customer_sct_wallet = $customer->sct_wallet + $request->amount;
             $market_price = MarketPrice::whereSymbol('£')->pluck('local_rate');
             $amount = ($logdata['amount'] * $setting->gbp_referral_bonus / 100) * $market_price[0];
-            DB::transaction(function () use ($user_gbp_wallet, $customer_gbp_wallet, $logdata, $user, $customer, $amount) {
-                $user->update(['gbp_wallet' => $user_gbp_wallet]);
-                $customer->update(['gbp_wallet' => $customer_gbp_wallet]);
+            DB::transaction(function () use ($user_sct_wallet, $customer_sct_wallet, $logdata, $user, $customer, $amount) {
+                $user->update(['sct_wallet' => $user_sct_wallet]);
+                $customer->update(['sct_wallet' => $customer_sct_wallet]);
                 if (!empty($customer->parent)) {
                     $referral_log = ReferralLog::where('upline_id', $customer->parent->id)->where('downline_id', $customer->id)->first();
                     if (empty($referral_log)) {
@@ -425,7 +433,7 @@ class UserController extends Controller
                 }
             });
         } else {
-            if ($log->amount > $log->user->gbp_wallet) {
+            if ($log->amount > $log->user->sct_wallet) {
                 return back()->with('error', 'Unable to reverse the transaction as customer have less amount in their wallet. Contact Administration to dispute this transaction.');
             }
             $update_upline = 0;
@@ -441,11 +449,11 @@ class UserController extends Controller
                     $ref_ngn_wallet = $log->user->parent->ref_ngn_wallet - $referral_log->amount;
                 }
             }
-            $vendor_gbp_wallet = $log->vendor->gbp_wallet + $log->amount;
-            $user_gbp_wallet = $log->user->gbp_wallet - $log->amount;
-            DB::transaction(function () use ($user_gbp_wallet, $vendor_gbp_wallet, $log, $update_upline, $ref_ngn_wallet, $referral_log) {
-                $log->user->update(['gbp_wallet' => $user_gbp_wallet]);
-                $log->vendor->update(['gbp_wallet' => $vendor_gbp_wallet]);
+            $vendor_sct_wallet = $log->vendor->sct_wallet + $log->amount;
+            $user_sct_wallet = $log->user->sct_wallet - $log->amount;
+            DB::transaction(function () use ($user_sct_wallet, $vendor_sct_wallet, $log, $update_upline, $ref_ngn_wallet, $referral_log) {
+                $log->user->update(['sct_wallet' => $user_sct_wallet]);
+                $log->vendor->update(['sct_wallet' => $vendor_sct_wallet]);
                 $log->update(['is_reversed' => true]);
                 if ($update_upline) {
                     $log->user->parent->update(['ref_ngn_wallet' => $ref_ngn_wallet]);
@@ -659,11 +667,11 @@ class UserController extends Controller
             ];
         }
         if ($currency == 'gbp') {
-            if ($amount_sold > $user->gbp_wallet) {
+            if ($amount_sold > $user->sct_wallet) {
                 return back()->with('error', 'Your entered amount is more than your GBP balance');
             }
             $user_data = [
-                'gbp_wallet' => $user->gbp_wallet - $amount_sold
+                'sct_wallet' => $user->sct_wallet - $amount_sold
             ];
             $market_price = $market_price->where('symbol', '£')->first();
             $amount_exchanged = $market_price->black_market_rate * $amount_sold;

@@ -59,23 +59,23 @@
                                     <img src="{{ asset('asset/user/images/flags/usa.svg') }}"
                                         class="img-fluid avatar avatar-70" alt="img60">
                                     <br class="d-block d-md-none">
-                                    <span class="fs-5 me-2">US Dollars</span>
+                                    <span class="fs-5 me-2">SafeCAPITAL USD</span>
                                     <small><a href="#">wallet</a></small>
                                     <div class="pt-2">
-                                        <h4 style="visibility: visible;">USD Balance</h4>
-                                        <h4 class="counter" style="visibility: visible;">{{ auth()->user()->getUsdWallet }}
+                                        <h4 style="visibility: visible;">SafeCAPITAL Balance</h4>
+                                        <h4 class="counter" style="visibility: visible;">{{ auth()->user()->getSctWallet }}
                                         </h4>
                                     </div>
                                     <div class="pt-2">
-                                        <a href="{{ route('user.fund_wallet') }}" class="btn btn-primary w-100"
+                                        <a href="{{ route('user.buy_capital') }}" class="btn btn-primary w-100"
                                             type="button">
-                                            Fund US Dollars @ ₦553
+                                            Buy SCT from Merchants
                                         </a>
                                     </div>
                                     <div class="pt-2">
                                         <a href="{{ route('user.sell_to_blackmarket') }}" class="btn btn-primary w-100"
                                             type="button">
-                                            Sell to Black Market @ ₦720
+                                            Convert SCT to USD
                                         </a>
                                     </div>
                                 </div>
@@ -87,23 +87,17 @@
                                     <img src="{{ asset('asset/user/images/flags/uk.svg') }}"
                                         class="img-fluid avatar avatar-70" alt="img60">
                                     <br class="d-block d-md-none">
-                                    <span class="fs-5 me-2">British Pound</span>
+                                    <span class="fs-5 me-2">US Dollars</span>
                                     <small><a href="#">wallet</a></small>
                                     <div class="pt-2">
-                                        <h4 style="visibility: visible;">GBP Balance</h4>
-                                        <h4 class="counter" style="visibility: visible;">{{ auth()->user()->getGbpWallet }}
+                                        <h4 style="visibility: visible;">USD Balance</h4>
+                                        <h4 class="counter" style="visibility: visible;">{{ auth()->user()->getUsdWallet }}
                                         </h4>
                                     </div>
                                     <div class="pt-2">
-                                        <a href="{{ route('user.fund_wallet') }}" class="btn btn-primary w-100"
+                                        <a href="{{ route('user.buy_capital') }}" class="btn btn-primary w-100"
                                             type="button">
-                                            Fund GBP Pounds @ ₦675
-                                        </a>
-                                    </div>
-                                    <div class="pt-2">
-                                        <a href="{{ route('user.sell_to_blackmarket') }}" class="btn btn-primary w-100"
-                                            type="button">
-                                            Sell to Black Market @ ₦869
+                                            Convert USD to NAIRA
                                         </a>
                                     </div>
                                 </div>

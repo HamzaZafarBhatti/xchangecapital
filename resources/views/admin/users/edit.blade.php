@@ -66,8 +66,8 @@
                                 </div>
                                 <label class="col-form-label col-lg-2">GBP Wallet:</label>
                                 <div class="col-lg-4">
-                                    <input type="text" name="gbp_wallet" class="form-control"
-                                        value="{{ $user->gbp_wallet }}">
+                                    <input type="text" name="sct_wallet" class="form-control"
+                                        value="{{ $user->sct_wallet }}">
                                 </div>
                             </div>
                             <div class="form-group row">

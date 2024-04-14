@@ -3,14 +3,17 @@
 
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NKY0PCWGLW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKY0PCWGLW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-NKY0PCWGLW');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NKY0PCWGLW');
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -58,12 +61,17 @@
         .swal-icon--success {
             border-color: #000000;
         }
+
+        .text-bg-success {
+            color: #fff !important;
+            background-color: RGBA(var(--bs-success-rgb), var(--bs-bg-opacity, 1)) !important;
+        }
     </style>
     @yield('css')
 
-<script src="https://use.fontawesome.com/7364f5dd4a.js"></script>
-<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-b360ba0e-17b6-4a65-95ac-b1b6185d7343"></div>
+    <script src="https://use.fontawesome.com/7364f5dd4a.js"></script>
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-b360ba0e-17b6-4a65-95ac-b1b6185d7343"></div>
 </head>
 
 <body class=" ">
@@ -100,8 +108,8 @@
 
     <script src="{{ asset('asset/admin/global_assets/js/plugins/notifications/sweet_alert.min.js') }}"></script>
     <script>
-        // alert('{{ Route::is("user.upload_proof") }}')
-        if ("{{ $user_proof }}" == 1 && !parseInt('{{ Route::is("user.upload_proof") }}')) {
+        // alert('{{ Route::is('user.upload_proof') }}')
+        if ("{{ $user_proof }}" == 1 && !parseInt('{{ Route::is('user.upload_proof') }}')) {
             swal({
                     title: "Upload Your Payment PROOF!",
                     text: "✨CONGRATULATIONS ON YOUR LATEST CASHOUT. ✨",

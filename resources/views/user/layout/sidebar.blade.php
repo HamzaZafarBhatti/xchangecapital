@@ -66,11 +66,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  @if(Route::is('user.fund_wallet')) active @endif" href="{{ route('user.fund_wallet') }}">
+                    <a class="nav-link  @if(Route::is('user.buy_capital*')) active @endif" href="{{ route('user.buy_capital.merchants') }}">
                         <i class="icon">
                             <i class="fa fa-money" aria-hidden="true"></i>
                         </i>
-                        <span class="item-name">Fund Wallet</span>
+                        <span class="item-name">Buy CAPITAL Token</span>
                     </a>
                 </li>
                 <li class="nav-item">

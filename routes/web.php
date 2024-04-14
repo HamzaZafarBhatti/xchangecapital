@@ -42,7 +42,7 @@ Route::name('front.')->controller(FrontController::class)->group(function () {
     Route::get('/about', 'about')->name('about');
     Route::get('/arbitrage_business_training', 'arbitrage_business_training')->name('arbitrage_business_training');
     Route::get('/how-it-works', 'how_it_works')->name('how_it_works');
-    Route::get('/foreign-currency-resellers', 'foreign_currency_resellers')->name('foreign_currency_resellers');
+    Route::get('/merchants', 'foreign_currency_resellers')->name('foreign_currency_resellers');
     Route::get('/verify-trader', 'verify_trader')->name('verify_trader');
     Route::post('/verify-trader', 'do_verify_trader')->name('do_verify_trader');
     Route::get('/payment-proofs', 'payment_proofs')->name('payment_proofs');
@@ -59,7 +59,7 @@ Route::name('front.')->controller(FrontController::class)->group(function () {
 });
 Route::middleware('guest')->group(function () {
     // Admin
-    Route::prefix('arbyvestadministrativepanel')->name('admin.')->group(function () {
+    Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('login', [AdminController::class, 'login'])->name('login');
         Route::post('login', [AdminController::class, 'do_login'])->name('do_login');
     });
@@ -87,7 +87,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     // Admin
-    Route::middleware('admin')->prefix('arbyvestadministrativepanel')->name('admin.')->group(function () {
+    Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
         Route::controller(AdminController::class)->group(function () {
             Route::get('/logout', 'logout')->name('logout');
             Route::get('/', 'dashboard')->name('dashboard');
@@ -180,9 +180,9 @@ Route::middleware('auth')->group(function () {
         Route::controller(UserController::class)->group(function () {
             Route::get('dashboard', 'dashboard')->name('dashboard');
             Route::get('market_rates', 'market_rates')->name('market_rates');
-            Route::get('fund_wallet', 'fund_wallet')->name('fund_wallet');
-            Route::post('fund_wallet', 'do_fund_wallet')->name('do_fund_wallet');
-            Route::get('fund_wallet_callback', 'fund_wallet_callback')->name('fund_wallet_callback');
+            Route::get('merchants', 'merchants')->name('buy_capital.merchants');
+            Route::get('buy_capital/{merchant_id}', 'buy_capital')->name('buy_capital.index');
+            Route::post('buy_capital', 'do_buy_capital')->name('buy_capital.store');
             Route::get('verify_trader', 'verify_trader')->name('trader.verify');
             Route::post('verify_trader', 'do_verify_trader')->name('trader.do_verify');
             Route::get('transfer_balance', 'transfer_balance')->name('transfer_balance');

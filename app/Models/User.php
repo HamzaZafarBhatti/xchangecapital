@@ -34,7 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'account_id',
         'usd_wallet',
-        'gbp_wallet',
+        'sct_wallet',
         'ngn_wallet',
         'ref_ngn_wallet',
         'image',
@@ -110,10 +110,10 @@ class User extends Authenticatable implements MustVerifyEmail
             get: fn($val, $attr) => '$ '.number_format($attr['usd_wallet'],2)
         );
     }
-    protected function getGbpWallet(): Attribute
+    protected function getSctWallet(): Attribute
     {
         return Attribute::make(
-            get: fn($val, $attr) => '£ '.number_format($attr['gbp_wallet'],2)
+            get: fn($val, $attr) => '£ '.number_format($attr['sct_wallet'],2)
         );
     }
     protected function getNgnWallet(): Attribute
