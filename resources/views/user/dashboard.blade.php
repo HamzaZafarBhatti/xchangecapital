@@ -67,7 +67,7 @@
                                         </h4>
                                     </div>
                                     <div class="pt-2">
-                                        <a href="{{ route('user.buy_capital') }}" class="btn btn-primary w-100"
+                                        <a href="{{ route('user.buy_capital.merchants') }}" class="btn btn-primary w-100"
                                             type="button">
                                             Buy SCT from Merchants
                                         </a>
@@ -95,7 +95,7 @@
                                         </h4>
                                     </div>
                                     <div class="pt-2">
-                                        <a href="{{ route('user.buy_capital') }}" class="btn btn-primary w-100"
+                                        <a href="{{ route('user.buy_capital.merchants') }}" class="btn btn-primary w-100"
                                             type="button">
                                             Convert USD to NAIRA
                                         </a>

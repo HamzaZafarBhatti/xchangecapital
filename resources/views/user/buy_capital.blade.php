@@ -47,13 +47,13 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-sm-6"><b>Merchant</b></div>
-                        <div class="col-sm-6">{{-- {{ $vendor->name }} --}}John Doe</div>
+                        <div class="col-sm-6">{{ $vendor->name }}</div>
                         <div class="col-sm-6"><b>Merchant Rate</b></div>
-                        <div class="col-sm-6">{{-- {{ $vendor->name }} --}}N500/SCT</div>
+                        <div class="col-sm-6">N{{ $vendor->sct_sell_price }}/SCT</div>
                         <div class="col-sm-6"><b>Amount Worth</b></div>
-                        <div class="col-sm-6">{{-- {{ $vendor->name }} --}}N100,000</div>
+                        <div class="col-sm-6">N{{ $vendor->sct_wallet * $vendor->sct_sell_price }}</div>
                         <div class="col-sm-6"><b>Available Aruba (AWG)</b></div>
-                        <div class="col-sm-6">{{-- {{ $vendor->name }} --}}200SCT</div>
+                        <div class="col-sm-6">{{ $vendor->sct_wallet }}SCT</div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -72,4 +72,15 @@
 @endsection
 
 @section('script')
+<script>
+    const sctAmountInput = document.getElementById('amount');
+    const ngnAmountInput = document.getElementById('ngn_amount');
+    const rate = '{{$vendor->sct_sell_price}}';
+    sctAmountInput.addEventListener('input', function(e) {
+        ngnAmountInput.value = sctAmountInput.value * rate
+    })
+    ngnAmountInput.addEventListener('input', function(e) {
+        sctAmountInput.value = ngnAmountInput.value / rate
+    })
+</script>
 @endsection

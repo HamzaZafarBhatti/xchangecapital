@@ -46,31 +46,30 @@
             <div class="container">
                 <div class="flex-display">
                     <h6>Buying</h6>
-                    <h6>SCT12</h6>
+                    <h6>SCT{{ $transaction->sct_amount }}</h6>
                 </div>
             </div>
             <div class="container">
                 <div class="flex-display">
                     <h6>Please Pay</h6>
-                    <h6>NGN 21312</h6>
+                    <h6>NGN {{ $transaction->ngn_amount }}</h6>
                 </div>
             </div>
             <div class="container">
                 <h6>Merchant Username</h6>
-                <p>John Doe</p>
+                <p>{{ $vendor->name }}</p>
                 <h6>Merchant WhatsApp</h6>
-                <p>+2313123123</p>
+                <p>{{ $vendor->phone }}</p>
                 <h6>Merchant Terms</h6>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt magnam placeat, nobis eius eos sunt
-                    fuga rerum cumque? Neque maxime nemo culpa corrupti quo sit debitis quod corporis obcaecati consectetur
-                    expedita recusandae qui magni reiciendis aperiam eius voluptas impedit voluptatum modi sint quidem,
-                    similique fugit voluptates incidunt! Et, libero illo.</p>
+                <div class="mb-3">
+                    {!! $vendor->terms ? $vendor->terms : '<b>No Terms and Conditions</b>' !!}
+                </div>
                 <h6>Order Created</h6>
-                <p>1 second ago</p>
+                <p>{{ $transaction->created_at->diffForHumans() }}</p>
                 <h6>Order ID</h6>
-                <p>44567234ddfbf</p>
+                <p>{{ $transaction->order_id }}</p>
                 <h6>Order Status</h6>
-                <p>Pending</p>
+                <p>{{ $transaction->status }}</p>
                 <h6>Payment Time Limit</h6>
                 <p class="mb-0">13 minutes</p>
                 <h5>
@@ -95,7 +94,7 @@
                     </div>
                     <div class="d-md-flex gap-3">
                         <button type="submit" class="btn btn-success">Transferred, Notify Merchant</button>
-                    <button type="reset" class="btn btn-danger mt-sm-0 mt-3">Cancel</button>
+                        <button type="reset" class="btn btn-danger mt-sm-0 mt-3">Cancel</button>
                     </div>
                 </form>
             </div>

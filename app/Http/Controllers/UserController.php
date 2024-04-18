@@ -14,6 +14,7 @@ use App\Models\PaymentProof;
 use App\Models\ReferralLog;
 use App\Models\ReferralWithdrawLog;
 use App\Models\Setting;
+use App\Models\Transaction;
 use App\Models\TransferBalanceLog;
 use App\Models\User;
 use App\Models\Withdraw;
@@ -133,113 +134,125 @@ class UserController extends Controller
     public function do_buy_capital(Request $request)
     {
         $data = $request->validate([
-            'amount' => 'required|integer',
+            'amount' => 'required|numeric',
             'merchant_id' => 'required'
         ]);
-        $vendor = User::find($data['merchant_id']);
-        return view('user.buy_capital_preview', compact('vendor'));
-        try {
-            $user = auth()->user();
-            $tx_ref = uniqid() . time();
-
-            $setting = Setting::first();
-
-            if ($request->currency == 'usd') {
-                $symbol = '$';
-                $market_price = MarketPrice::whereSymbol('$')->pluck('local_rate');
-            } else {
-                $symbol = '£';
-                $market_price = MarketPrice::whereSymbol('£')->pluck('local_rate');
-            }
-            if ($request->amount < $setting->min_deposit_by_flutterwave) {
-                return back()->with('error', 'Minimum amount to deposit is ' . $symbol . $setting->min_deposit_by_flutterwave);
-            }
-            if ($request->amount > $setting->max_deposit_by_flutterwave) {
-                return back()->with('error', 'Maximum amount to deposit is ' . $symbol . $setting->max_deposit_by_flutterwave);
-            }
-            $converted_amount = $request->amount * $market_price[0];
-
-            $fund_wallet_fee = $setting->fund_wallet_fee;
-            $total_fee = $converted_amount * $fund_wallet_fee / 100;
-            $charged_amount = $converted_amount + $total_fee;
-            FundWalletLog::create([
-                'user_id' => $user->id,
-                'ref_id' => $tx_ref,
-                'requested_amount' => $request->amount,
-                'currency' => $request->currency,
-                'fee' => $total_fee,
-                'charged_amount' => $charged_amount,
-                'status' => 0,
-                'converted_amount' => $converted_amount
+        $vendor = User::with('bank_detail')->find($data['merchant_id']);
+        $order_id = uniqid();
+        $transaction = Transaction::where('user_id', auth()->user()->id)->where('status', 'pending')->first();
+        if(!$transaction) {
+            $transaction = Transaction::create([
+                'order_id' => $order_id,
+                'sct_amount' => $data['amount'],
+                'ngn_amount' => $data['amount'] * $vendor->sct_sell_price,
+                'merchant_id' => $vendor->id,
+                'user_id' => auth()->user()->id,
+                'status' => 'pending'
             ]);
-
-            /*
-            * Demo Payload
-            */
-            // {
-            //     "tx_ref": "hooli-tx-1920bbtytty",
-            //     "amount": "100",
-            //     "currency": "NGN",
-            //     "redirect_url": "https://webhook.site/9d0b00ba-9a69-44fa-a43d-a82c33c36fdc",
-            //     "meta": {
-            //         "consumer_id": 23,
-            //         "consumer_mac": "92a3-912ba-1192a"
-            //     },
-            //     "customer": {
-            //         "email": "user@gmail.com",
-            //         "phonenumber": "080****4528",
-            //         "name": "Yemi Desola"
-            //     },
-            //     "customizations": {
-            //         "title": "Pied Piper Payments",
-            //         "logo": "http://www.piedpiper.com/app/themes/joystick-v27/images/logo.png"
-            //     }
-            // }
-
-            $payload = [
-                "tx_ref" => $tx_ref,
-                "amount" => $charged_amount,
-                "currency" => "NGN",
-                "redirect_url" => route('user.fund_wallet_callback'),
-                "customer" => [
-                    "email" => $user->email,
-                    "phonenumber" => $user->phone,
-                    "name" => $user->name
-                ],
-                "customizations" => [
-                    "title" => config('app.name')
-                ]
-            ];
-
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => config('app.fw_url') . '/payments',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => json_encode($payload),
-                CURLOPT_HTTPHEADER => array(
-                    'Authorization: Bearer ' . config('app.fw_secret_key'),
-                    'Content-Type: application/json'
-                ),
-            ));
-
-            $response = curl_exec($curl);
-
-            // Log::info('Response');
-            // Log::info($response);
-            curl_close($curl);
-            $decoded = json_decode($response);
-            // return $decoded;
-            return back()->with('fund_success', $decoded);
-        } catch (Throwable $th) {
-            Log::error($th->getMessage());
-            return back()->with('error', 'Something went wrong');
         }
+        return view('user.buy_capital_preview', compact('vendor', 'transaction'));
+        // try {
+        //     $user = auth()->user();
+        //     $tx_ref = uniqid() . time();
+
+        //     $setting = Setting::first();
+
+        //     if ($request->currency == 'usd') {
+        //         $symbol = '$';
+        //         $market_price = MarketPrice::whereSymbol('$')->pluck('local_rate');
+        //     } else {
+        //         $symbol = '£';
+        //         $market_price = MarketPrice::whereSymbol('£')->pluck('local_rate');
+        //     }
+        //     if ($request->amount < $setting->min_deposit_by_flutterwave) {
+        //         return back()->with('error', 'Minimum amount to deposit is ' . $symbol . $setting->min_deposit_by_flutterwave);
+        //     }
+        //     if ($request->amount > $setting->max_deposit_by_flutterwave) {
+        //         return back()->with('error', 'Maximum amount to deposit is ' . $symbol . $setting->max_deposit_by_flutterwave);
+        //     }
+        //     $converted_amount = $request->amount * $market_price[0];
+
+        //     $fund_wallet_fee = $setting->fund_wallet_fee;
+        //     $total_fee = $converted_amount * $fund_wallet_fee / 100;
+        //     $charged_amount = $converted_amount + $total_fee;
+        //     FundWalletLog::create([
+        //         'user_id' => $user->id,
+        //         'ref_id' => $tx_ref,
+        //         'requested_amount' => $request->amount,
+        //         'currency' => $request->currency,
+        //         'fee' => $total_fee,
+        //         'charged_amount' => $charged_amount,
+        //         'status' => 0,
+        //         'converted_amount' => $converted_amount
+        //     ]);
+
+        //     /*
+        //     * Demo Payload
+        //     */
+        //     // {
+        //     //     "tx_ref": "hooli-tx-1920bbtytty",
+        //     //     "amount": "100",
+        //     //     "currency": "NGN",
+        //     //     "redirect_url": "https://webhook.site/9d0b00ba-9a69-44fa-a43d-a82c33c36fdc",
+        //     //     "meta": {
+        //     //         "consumer_id": 23,
+        //     //         "consumer_mac": "92a3-912ba-1192a"
+        //     //     },
+        //     //     "customer": {
+        //     //         "email": "user@gmail.com",
+        //     //         "phonenumber": "080****4528",
+        //     //         "name": "Yemi Desola"
+        //     //     },
+        //     //     "customizations": {
+        //     //         "title": "Pied Piper Payments",
+        //     //         "logo": "http://www.piedpiper.com/app/themes/joystick-v27/images/logo.png"
+        //     //     }
+        //     // }
+
+        //     $payload = [
+        //         "tx_ref" => $tx_ref,
+        //         "amount" => $charged_amount,
+        //         "currency" => "NGN",
+        //         "redirect_url" => route('user.fund_wallet_callback'),
+        //         "customer" => [
+        //             "email" => $user->email,
+        //             "phonenumber" => $user->phone,
+        //             "name" => $user->name
+        //         ],
+        //         "customizations" => [
+        //             "title" => config('app.name')
+        //         ]
+        //     ];
+
+        //     $curl = curl_init();
+        //     curl_setopt_array($curl, array(
+        //         CURLOPT_URL => config('app.fw_url') . '/payments',
+        //         CURLOPT_RETURNTRANSFER => true,
+        //         CURLOPT_ENCODING => '',
+        //         CURLOPT_MAXREDIRS => 10,
+        //         CURLOPT_TIMEOUT => 0,
+        //         CURLOPT_FOLLOWLOCATION => true,
+        //         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        //         CURLOPT_CUSTOMREQUEST => 'POST',
+        //         CURLOPT_POSTFIELDS => json_encode($payload),
+        //         CURLOPT_HTTPHEADER => array(
+        //             'Authorization: Bearer ' . config('app.fw_secret_key'),
+        //             'Content-Type: application/json'
+        //         ),
+        //     ));
+
+        //     $response = curl_exec($curl);
+
+        //     // Log::info('Response');
+        //     // Log::info($response);
+        //     curl_close($curl);
+        //     $decoded = json_decode($response);
+        //     // return $decoded;
+        //     return back()->with('fund_success', $decoded);
+        // } catch (Throwable $th) {
+        //     Log::error($th->getMessage());
+        //     return back()->with('error', 'Something went wrong');
+        // }
     }
 
     public function fund_wallet_callback(Request $request)

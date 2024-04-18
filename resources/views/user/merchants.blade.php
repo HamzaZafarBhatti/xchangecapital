@@ -32,27 +32,18 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="heading">Merchant (John Doe)</h3>
-                    <h5>Selling Price of SafeCapital Token: NGN 500</h5>
-                    <h5>Total SafeCapital (SCT): 200</h5>
-                    <h5>Amount Worth in Naira: N100,000</h5>
-                    <h5>Status: Available</h5>
-                    <h5>Payment: Bank Transfer</h5>
-                    <a href="{{ route('user.buy_capital.index', '1') }}" type="button" class="btn btn-primary w-100 mt-1">Buy Capital (SCT)</a>
-                </div>
-            </div>
             @foreach ($vendors as $vendor)
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="heading">Merchant (John Doe)</h3>
-                        <h5>Selling Price of SafeCapital Token: NGN 500</h5>
-                        <h5>Total SafeCapital (SCT): 200</h5>
-                        <h5>Amount Worth in Naira: N100,000</h5>
-                        <h5>Status: Available</h5>
+                        <h3 class="heading">Merchant ({{ $vendor->name }})</h3>
+                        <h5>Selling Price of SafeCapital Token: NGN {{ $vendor->sct_sell_price }}</h5>
+                        <h5>Total SafeCapital (SCT): {{ $vendor->sct_wallet }}</h5>
+                        <h5>Amount Worth in Naira: N{{ $vendor->sct_wallet * $vendor->sct_sell_price }}</h5>
+                        <h5>Status: {{ $vendor->sct_available ? 'Available' : 'Unavailable' }}</h5>
                         <h5>Payment: Bank Transfer</h5>
-                        <button type="button" class="btn-yellow">Buy Capital (SCT)</button>
+                        <a href="{{ route('user.buy_capital.index', $vendor->id) }}" type="button"
+                            class="btn btn-primary w-100 mt-1">Buy
+                            Capital (SCT)</a>
                     </div>
                 </div>
             @endforeach
