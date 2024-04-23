@@ -9,12 +9,15 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    protected $transactionPath = 'asset/images/transactions/';
+
     protected $fillable = [
         'order_id',
         'sct_amount',
         'ngn_amount',
         'merchant_id',
         'user_id',
+        'image',
         'status'
     ];
 
@@ -26,5 +29,10 @@ class Transaction extends Model
     public function merchant()
     {
         return $this->belongsTo(User::class, 'merchant_id', 'id');
+    }
+
+    public function getTransactionPath()
+    {
+        return $this->transactionPath;
     }
 }

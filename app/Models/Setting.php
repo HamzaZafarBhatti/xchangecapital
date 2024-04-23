@@ -38,6 +38,9 @@ class Setting extends Model
         'min_deposit_by_flutterwave',
         'max_deposit_by_flutterwave',
         'block_after_days',
+        'sct_buy_time',
+        'sct_convert_time',
+        'usd_convert_time',
     ];
 
     public function getLogoPath()

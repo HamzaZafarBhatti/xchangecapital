@@ -160,6 +160,24 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-form-label col-lg-2">SCT Purchase Time:</label>
+                                <div class="col-lg-10">
+                                    <input type="number" name="sct_buy_time" value="{{ $set->sct_buy_time }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">SCT to USD (Hours):</label>
+                                <div class="col-lg-10">
+                                    <input type="number" name="sct_convert_time" value="{{ $set->sct_convert_time }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">USD to Naira (Hours):</label>
+                                <div class="col-lg-10">
+                                    <input type="number" name="usd_convert_time" value="{{ $set->usd_convert_time }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Message to Vendor:</label>
                                 <div class="col-lg-10">
                                     <textarea name="msg_to_vendor" id="msg_to_vendor" cols="30" rows="2" class="form-control">{{ $set->msg_to_vendor }}</textarea>

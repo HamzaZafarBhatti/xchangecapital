@@ -71,9 +71,12 @@
                 <h6>Order Status</h6>
                 <p>{{ $transaction->status }}</p>
                 <h6>Payment Time Limit</h6>
-                <p class="mb-0">13 minutes</p>
+                <p class="mb-0">{{ $settings->sct_buy_time }} minutes</p>
                 <h5>
-                    <span class="badge text-bg-success rounded-pill">00:12:12</span>
+                    <span class="badge text-bg-success rounded-pill">00:
+                        <span id="minutes">{{ $settings->sct_buy_time }}</span>:
+                        <span id="seconds">00</span>
+                    </span>
                 </h5>
             </div>
             <div class="container">
@@ -87,8 +90,9 @@
             </div>
             <div class="container">
                 <p>After Transferring the amount, upload screenshot and click on "Transferred, Notify Merchant" Button.</p>
-                <form action="{{ route('user.buy_capital.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('user.buy_capital.complete') }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="transaction_id" value="{{ $transaction->id }}">
                     <div class="form-group">
                         <input type="file" name="proof" id="proof" required class="form-control">
                     </div>
@@ -103,4 +107,70 @@
 @endsection
 
 @section('script')
+    <script>
+        const minSpan = $('#minutes');
+        const secSpan = $('#seconds');
+        const sctBuyTime = '{{ $settings->sct_buy_time }}'
+        const transactionCreateTime = '{{ $transaction->created_at }}'
+
+        function getTime(timezone) {
+            const date = new Date();
+            const formatter = new Intl.DateTimeFormat('en-US', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                timeZone: timezone
+            });
+
+            const dateString = formatter.format(date);
+            return new Date(dateString).getTime();
+        }
+
+        function startTimer(initialDateTime, durationMinutes) {
+            // Convert initialDateTime to milliseconds
+            const initialTime = new Date(initialDateTime).getTime();
+
+            // Calculate the end time by adding durationMinutes to initialTime
+            const endTime = initialTime + (durationMinutes * 60 * 1000);
+
+            // Update the timer every second
+            const timerInterval = setInterval(updateTimer, 1000);
+
+            function updateTimer() {
+                // Get the current time
+                const currentTime = getTime('{{ \Carbon\Carbon::now()->timezoneName }}');
+
+                // Calculate the remaining time
+                const remainingTime = endTime - currentTime;
+
+                // Check if the timer has reached zero
+                if (remainingTime <= 0) {
+                    clearInterval(timerInterval); // Stop the timer
+                    console.log("Timer has ended!");
+                    minSpan.text('00')
+                    secSpan.text('00')
+                    return;
+                }
+
+                // Convert remaining time to minutes and seconds
+                let minutes = Math.floor(remainingTime / (1000 * 60));
+                if (parseInt(minutes) < 10) {
+                    minutes = '0' + minutes
+                }
+                let seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+                if (parseInt(seconds) < 10) {
+                    seconds = '0' + seconds
+                }
+
+                // Display the remaining time
+                minSpan.text(minutes)
+                secSpan.text(seconds)
+            }
+        }
+
+        startTimer(transactionCreateTime, sctBuyTime);
+    </script>
 @endsection

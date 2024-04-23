@@ -138,9 +138,10 @@ class UserController extends Controller
             'merchant_id' => 'required'
         ]);
         $vendor = User::with('bank_detail')->find($data['merchant_id']);
+        $settings = Setting::first();
         $order_id = uniqid();
         $transaction = Transaction::where('user_id', auth()->user()->id)->where('status', 'pending')->first();
-        if(!$transaction) {
+        if (!$transaction) {
             $transaction = Transaction::create([
                 'order_id' => $order_id,
                 'sct_amount' => $data['amount'],
@@ -150,7 +151,7 @@ class UserController extends Controller
                 'status' => 'pending'
             ]);
         }
-        return view('user.buy_capital_preview', compact('vendor', 'transaction'));
+        return view('user.buy_capital_preview', compact('vendor', 'transaction', 'settings'));
         // try {
         //     $user = auth()->user();
         //     $tx_ref = uniqid() . time();
@@ -253,6 +254,19 @@ class UserController extends Controller
         //     Log::error($th->getMessage());
         //     return back()->with('error', 'Something went wrong');
         // }
+    }
+
+    public function buy_capital_complete(Request $request)
+    {
+        $transaction = Transaction::find($request->transaction_id);
+        if ($image = $request->file('proof')) {
+            $filename = 'proof_' . time() . '.' . $image->getClientOriginalExtension();
+            $location =  $transaction->getTransactionPath() . $filename;
+            Image::make($image)->save($location);
+            $data['image'] = $filename;
+            $transaction->update($data);
+        }
+        return redirect()->route('user.buy_capital.merchants');
     }
 
     public function fund_wallet_callback(Request $request)

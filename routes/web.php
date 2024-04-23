@@ -181,8 +181,9 @@ Route::middleware('auth')->group(function () {
             Route::get('dashboard', 'dashboard')->name('dashboard');
             Route::get('market_rates', 'market_rates')->name('market_rates');
             Route::get('merchants', 'merchants')->name('buy_capital.merchants');
-            Route::get('buy_capital/{merchant_id}', 'buy_capital')->name('buy_capital.index');
+            Route::get('buy_capital/merchant/{merchant_id}', 'buy_capital')->name('buy_capital.index');
             Route::post('buy_capital', 'do_buy_capital')->name('buy_capital.store');
+            Route::post('buy_capital/complete', 'buy_capital_complete')->name('buy_capital.complete');
             Route::get('verify_trader', 'verify_trader')->name('trader.verify');
             Route::post('verify_trader', 'do_verify_trader')->name('trader.do_verify');
             Route::get('transfer_balance', 'transfer_balance')->name('transfer_balance');
