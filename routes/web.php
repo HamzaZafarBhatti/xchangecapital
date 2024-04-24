@@ -19,6 +19,7 @@ use App\Http\Controllers\PaymentProofController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReferralWithdrawController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SctPurchaseController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WithdrawController;
@@ -203,6 +204,11 @@ Route::middleware('auth')->group(function () {
             Route::get('thankyou', 'thankyou')->name('thankyou');
             Route::get('referral', 'referral')->name('referral');
             Route::get('exclusive_offers', 'exclusive_offers')->name('exclusive_offers');
+        });
+        Route::controller(SctPurchaseController::class)->name('sct_requests.')->group(function () {
+            Route::get('buy_capital/requests', 'index')->name('index');
+            Route::get('buy_capital/requests/{id}/accept', 'accept')->name('accept');
+            Route::get('buy_capital/requests/{id}/reject', 'reject')->name('reject');
         });
         Route::controller(ProfileController::class)->group(function () {
             Route::get('profile', 'edit')->name('profile.edit');

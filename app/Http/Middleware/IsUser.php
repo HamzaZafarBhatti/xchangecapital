@@ -17,7 +17,7 @@ class IsUser
     public function handle(Request $request, Closure $next)
     {
         $role = auth()->user()->getRoleNames()->first();
-        if($role == 'User') {
+        if (in_array($role, ['User', 'Vendor'])) {
             return $next($request);
         }
         abort(403);

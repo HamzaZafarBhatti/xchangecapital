@@ -31,7 +31,8 @@
         <div class="collapse navbar-collapse pe-3" id="sidebar">
             <ul class="navbar-nav iq-main-menu">
                 <li class="nav-item ">
-                    <a class="nav-link @if(Route::is('user.dashboard')) active @endif" aria-current="page" href="{{ route('user.dashboard') }}">
+                    <a class="nav-link @if (Route::is('user.dashboard')) active @endif" aria-current="page"
+                        href="{{ route('user.dashboard') }}">
                         <i class="icon">
                             <svg width="22" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -46,11 +47,12 @@
                 <li>
                     <hr class="hr-horizontal">
                 </li>
-                <li class="nav-item"> 
+                <li class="nav-item">
                     <span class="nav-link">Currency Trading</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.market_rates')) active @endif" href="{{ route('user.market_rates') }}">
+                    <a class="nav-link @if (Route::is('user.market_rates')) active @endif"
+                        href="{{ route('user.market_rates') }}">
                         <i class="icon">
                             <i class="fa fa-line-chart" aria-hidden="true"></i>
                         </i>
@@ -58,7 +60,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.sell_to_blackmarket')) active @endif" href="{{ route('user.sell_to_blackmarket') }}">
+                    <a class="nav-link @if (Route::is('user.sell_to_blackmarket')) active @endif"
+                        href="{{ route('user.sell_to_blackmarket') }}">
                         <i class="icon">
                             <i class="fa fa-exchange" aria-hidden="true"></i>
                         </i>
@@ -66,15 +69,28 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  @if(Route::is('user.buy_capital*')) active @endif" href="{{ route('user.buy_capital.merchants') }}">
+                    <a class="nav-link  @if (Route::is('user.buy_capital*')) active @endif"
+                        href="{{ route('user.buy_capital.merchants') }}">
                         <i class="icon">
                             <i class="fa fa-money" aria-hidden="true"></i>
                         </i>
                         <span class="item-name">Buy CAPITAL Token</span>
                     </a>
                 </li>
+                @role('Vendor')
+                    <li class="nav-item">
+                        <a class="nav-link  @if (Route::is('user.sct_requests*')) active @endif"
+                            href="{{ route('user.sct_requests.index') }}">
+                            <i class="icon">
+                                <i class="fa fa-money" aria-hidden="true"></i>
+                            </i>
+                            <span class="item-name">SCT Buy Requests</span>
+                        </a>
+                    </li>
+                @endrole
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.transfer_balance')) active @endif" href="{{ route('user.transfer_balance') }}">
+                    <a class="nav-link @if (Route::is('user.transfer_balance')) active @endif"
+                        href="{{ route('user.transfer_balance') }}">
                         <i class="icon">
                             <i class="fa fa-arrow-right" aria-hidden="true"></i>
                         </i>
@@ -82,7 +98,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.trader.*')) active @endif" href="{{ route('user.trader.verify') }}">
+                    <a class="nav-link @if (Route::is('user.trader.*')) active @endif"
+                        href="{{ route('user.trader.verify') }}">
                         <i class="icon">
                             <i class="fa fa-search-plus" aria-hidden="true"></i>
                         </i>
@@ -90,18 +107,20 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.withdraw')) active @endif" href="{{ route('user.withdraw') }}">
+                    <a class="nav-link @if (Route::is('user.withdraw')) active @endif"
+                        href="{{ route('user.withdraw') }}">
                         <i class="icon">
                             <i class="fa fa-university" aria-hidden="true"></i>
                         </i>
                         <span class="item-name">Withdraw NGN Wallet</span>
                     </a>
                 </li>
-                
+
                 <li class="nav-item">
-                    <a class="nav-link " href="https://arbyvest.com/foreign-currency-resellers" target="_blank>
+                    <a class="nav-link " href="https://arbyvest.com/foreign-currency-resellers"
+                        target="_blank>
                         <i class="icon">
-                            <i class="fa fa-external-link-square" aria-hidden="true"></i>
+                        <i class="fa fa-external-link-square" aria-hidden="true"></i>
                         </i>
                         <span class="item-name">Currency AGENTS</span>
                     </a>
@@ -109,11 +128,12 @@
                 <li>
                     <hr class="hr-horizontal">
                 </li>
-                <li class="nav-item"> 
+                <li class="nav-item">
                     <span class="nav-link">Referral Earnings</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.referral')) active @endif" href="{{ route('user.referral') }}">
+                    <a class="nav-link @if (Route::is('user.referral')) active @endif"
+                        href="{{ route('user.referral') }}">
                         <i class="icon">
                             <i class="fa fa-users" aria-hidden="true"></i>
                         </i>
@@ -121,15 +141,17 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.withdraw_referral')) active @endif" href="{{ route('user.withdraw_referral') }}">
+                    <a class="nav-link @if (Route::is('user.withdraw_referral')) active @endif"
+                        href="{{ route('user.withdraw_referral') }}">
                         <i class="icon">
-                           <i class="fa fa-university" aria-hidden="true"></i>
+                            <i class="fa fa-university" aria-hidden="true"></i>
                         </i>
                         <span class="item-name">Withdraw Referral NGN Wallet</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.exclusive_offers')) active @endif" href="{{ route('user.exclusive_offers') }}">
+                    <a class="nav-link @if (Route::is('user.exclusive_offers')) active @endif"
+                        href="{{ route('user.exclusive_offers') }}">
                         <i class="icon">
                             <i class="fa fa-gift" aria-hidden="true"></i>
                         </i>
@@ -139,11 +161,12 @@
                 <li>
                     <hr class="hr-horizontal">
                 </li>
-                 <li class="nav-item"> 
+                <li class="nav-item">
                     <span class="nav-link">Social Media Channels</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.referral')) active @endif" href="https://chat.whatsapp.com/FuYKPVY98dnC6j81aemdo8" target="_blank">
+                    <a class="nav-link @if (Route::is('user.referral')) active @endif"
+                        href="https://chat.whatsapp.com/FuYKPVY98dnC6j81aemdo8" target="_blank">
                         <i class="icon">
                             <i class="fa fa-whatsapp" aria-hidden="true"></i>
                         </i>
@@ -151,7 +174,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.referral')) active @endif" href="https://chat.whatsapp.com/KI6MeXIbj9hI9YIsptymeG" target="_blank">
+                    <a class="nav-link @if (Route::is('user.referral')) active @endif"
+                        href="https://chat.whatsapp.com/KI6MeXIbj9hI9YIsptymeG" target="_blank">
                         <i class="icon">
                             <i class="fa fa-whatsapp" aria-hidden="true"></i>
                         </i>
@@ -159,7 +183,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.referral')) active @endif" href="https://chat.whatsapp.com/KI6MeXIbj9hI9YIsptymeG" target="_blank">
+                    <a class="nav-link @if (Route::is('user.referral')) active @endif"
+                        href="https://chat.whatsapp.com/KI6MeXIbj9hI9YIsptymeG" target="_blank">
                         <i class="icon">
                             <i class="fa fa-whatsapp" aria-hidden="true"></i>
                         </i>
@@ -167,7 +192,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.referral')) active @endif" href="https://t.me/arbyvest" target="_blank">
+                    <a class="nav-link @if (Route::is('user.referral')) active @endif" href="https://t.me/arbyvest"
+                        target="_blank">
                         <i class="icon">
                             <i class="fa fa-telegram" aria-hidden="true"></i>
                         </i>
@@ -175,7 +201,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.referral')) active @endif" href="https://www.facebook.com/groups/arbyvest/" target="_blank">
+                    <a class="nav-link @if (Route::is('user.referral')) active @endif"
+                        href="https://www.facebook.com/groups/arbyvest/" target="_blank">
                         <i class="icon">
                             <i class="fa fa-facebook-official" aria-hidden="true"></i>
                         </i>
@@ -183,7 +210,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if(Route::is('user.referral')) active @endif" href="https://www.facebook.com/arbyvest" target="_blank">
+                    <a class="nav-link @if (Route::is('user.referral')) active @endif"
+                        href="https://www.facebook.com/arbyvest" target="_blank">
                         <i class="icon">
                             <i class="fa fa-facebook-official" aria-hidden="true"></i>
                         </i>
@@ -193,25 +221,28 @@
                 <li>
                     <hr class="hr-horizontal">
                 </li>
-                <li class="nav-item"> 
+                <li class="nav-item">
                     <span class="nav-link">RESOURCES</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  @if (Route::is('user.profile.edit')) active @endif" href="https://arbyvest.com/asset/whitepaper/how-it-works/document/Trading%20Foreign%20Currencies%20with%20ARBYVEST%20TECHNOLOGY.pdf" target="_blank">
+                    <a class="nav-link  @if (Route::is('user.profile.edit')) active @endif"
+                        href="https://arbyvest.com/asset/whitepaper/how-it-works/document/Trading%20Foreign%20Currencies%20with%20ARBYVEST%20TECHNOLOGY.pdf"
+                        target="_blank">
                         <i class="icon">
                             <i class="fa fa-download" aria-hidden="true"></i>
                         </i>
                         <span class="item-name">Download GUIDE</span>
                     </a>
                 </li>
-                 <li>
+                <li>
                     <hr class="hr-horizontal">
                 </li>
-                <li class="nav-item"> 
+                <li class="nav-item">
                     <span class="nav-link">Account Settings</span>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  @if (Route::is('user.profile.edit')) active @endif" href="{{ route('user.profile.edit') }}">
+                    <a class="nav-link  @if (Route::is('user.profile.edit')) active @endif"
+                        href="{{ route('user.profile.edit') }}">
                         <i class="icon">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </i>
@@ -219,17 +250,19 @@
                     </a>
                 </li>
                 @if (!auth()->user()->is_verified)
-                <li class="nav-item">
-                    <a class="nav-link @if (Route::is('user.verify_account')) active @endif" href="{{ route('user.verify_account') }}">
-                        <i class="icon">
-                            <i class="fa fa-id-card-o" aria-hidden="true"></i>
-                        </i>
-                        <span class="item-name">Account Verification KYC</span>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link @if (Route::is('user.verify_account')) active @endif"
+                            href="{{ route('user.verify_account') }}">
+                            <i class="icon">
+                                <i class="fa fa-id-card-o" aria-hidden="true"></i>
+                            </i>
+                            <span class="item-name">Account Verification KYC</span>
+                        </a>
+                    </li>
                 @endif
                 <li class="nav-item">
-                    <a class="nav-link @if (Route::is('user.change_pin')) active @endif" href="{{ route('user.change_pin') }}">
+                    <a class="nav-link @if (Route::is('user.change_pin')) active @endif"
+                        href="{{ route('user.change_pin') }}">
                         <i class="icon">
                             <i class="fa fa-cog" aria-hidden="true"></i>
                         </i>
@@ -238,18 +271,21 @@
                 </li>
                 <li class="nav-item">
                     @if (!auth()->user()->bank_detail)
-                        <a class="nav-link @if (Route::is('user.create_bank_details')) active @endif" href="{{ route('user.create_bank_details') }}">
-                    @else
-                        <a class="nav-link @if (Route::is('user.edit_bank_details', auth()->user()->bank_detail->id)) active @endif" href="{{ route('user.edit_bank_details', auth()->user()->bank_detail->id) }}">                        
+                        <a class="nav-link @if (Route::is('user.create_bank_details')) active @endif"
+                            href="{{ route('user.create_bank_details') }}">
+                        @else
+                            <a class="nav-link @if (Route::is('user.edit_bank_details', auth()->user()->bank_detail->id)) active @endif"
+                                href="{{ route('user.edit_bank_details', auth()->user()->bank_detail->id) }}">
                     @endif
-                        <i class="icon">
-                            <i class="fa fa-university" aria-hidden="true"></i>
-                        </i>
-                        <span class="item-name">Bank Account Wallet</span>
+                    <i class="icon">
+                        <i class="fa fa-university" aria-hidden="true"></i>
+                    </i>
+                    <span class="item-name">Bank Account Wallet</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if (Route::is('user.password.edit')) active @endif" href="{{ route('user.password.edit') }}">
+                    <a class="nav-link @if (Route::is('user.password.edit')) active @endif"
+                        href="{{ route('user.password.edit') }}">
                         <i class="icon">
                             <i class="fa fa-lock" aria-hidden="true"></i>
                         </i>
