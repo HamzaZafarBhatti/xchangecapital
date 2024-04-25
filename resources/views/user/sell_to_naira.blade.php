@@ -39,7 +39,7 @@
 
 @section('content')
     @include('user.partials.user_verfication_notice')
-    @include('user.partials.blackmarket_form')
+    @include('user.partials.naira_form')
     @if ($latest_log)
         <div class="card text-center text-md-start">
             <div class="card-header">
@@ -189,7 +189,7 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('asset/user/js/blackmarket.js') }}"></script>
+    <script src="{{ asset('asset/user/js/naira.js') }}"></script>
     <script>
         function getRemainingTime() {
             const today = new Date().getTime();

@@ -13,9 +13,8 @@
                                 <h4 class="text-uppercase mt-5">Black Market Sale is Completed
                                 </h4>
                                 <div class="mt-5 text-center">
-                                    <a class="btn btn-primary waves-effect waves-light"
-                                        href="{{ route('user.sell_to_blackmarket') }}">Back to
-                                        Black Market Sale</a>
+                                    {{-- <a class="btn btn-primary waves-effect waves-light"
+                                        href="{{ back() }}">Back to Market Page</a> --}}
                                 </div>
                             </div>
                         </div>

@@ -41,6 +41,8 @@ class Setting extends Model
         'sct_buy_time',
         'sct_convert_time',
         'usd_convert_time',
+        'sct_to_usd',
+        'usd_to_naira',
     ];
 
     public function getLogoPath()

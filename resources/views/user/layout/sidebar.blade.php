@@ -69,6 +69,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link @if (Route::is('user.sell_to_naira')) active @endif"
+                        href="{{ route('user.sell_to_naira') }}">
+                        <i class="icon">
+                            <i class="fa fa-exchange" aria-hidden="true"></i>
+                        </i>
+                        <span class="item-name">Sell to Naira</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link  @if (Route::is('user.buy_capital*')) active @endif"
                         href="{{ route('user.buy_capital.merchants') }}">
                         <i class="icon">

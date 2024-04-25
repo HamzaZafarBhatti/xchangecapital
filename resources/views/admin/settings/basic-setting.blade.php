@@ -178,6 +178,18 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-form-label col-lg-2">SCT to USD Rate:</label>
+                                <div class="col-lg-10">
+                                    <input type="number" name="sct_to_usd" value="{{ $set->sct_to_usd }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-form-label col-lg-2">USD to Naira Rate:</label>
+                                <div class="col-lg-10">
+                                    <input type="number" name="usd_to_naira" value="{{ $set->usd_to_naira }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-form-label col-lg-2">Message to Vendor:</label>
                                 <div class="col-lg-10">
                                     <textarea name="msg_to_vendor" id="msg_to_vendor" cols="30" rows="2" class="form-control">{{ $set->msg_to_vendor }}</textarea>

@@ -6,7 +6,7 @@ amountSold.addEventListener("input", getAmountExchanged);
 function getAmountExchanged() {
     if (amountSold.value > 0) {
         $.ajax({
-            url: "get_amount_exchanged",
+            url: "get_naira_amount_exchanged",
             method: "post",
             dataType: "json",
             data: {

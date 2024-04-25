@@ -636,7 +636,7 @@ class UserController extends Controller
 
     public function sell_to_blackmarket()
     {
-        $blackMarketLogObj = BlackmarketLog::where('user_id', auth()->user()->id);
+        $blackMarketLogObj = BlackmarketLog::where('user_id', auth()->user()->id)->where('currency', 'sct');
         $logs = $blackMarketLogObj->latest('id')->get();
         $latest_log = $blackMarketLogObj->where('status', 0)->latest('id')->first();
         return view('user.sell_to_blackmarket', compact('logs', 'latest_log'));
@@ -645,16 +645,15 @@ class UserController extends Controller
     public function do_sell_to_blackmarket(Request $request)
     {
         // return $request;
-        $today = Carbon::now();
-        $day_of_week = $today->format('l');
-        $days_not_allowed = ['Saturday', 'Sunday'];
-        if (in_array($day_of_week, $days_not_allowed)) {
-            return back()->with('warning', 'You cannot use black market on Saturday and Sunday.');
-        }
+        // $today = Carbon::now();
+        // $day_of_week = $today->format('l');
+        // $days_not_allowed = ['Saturday', 'Sunday'];
+        // if (in_array($day_of_week, $days_not_allowed)) {
+        //     return back()->with('warning', 'You cannot use black market on Saturday and Sunday.');
+        // }
         $request->validate([
             'amount_sold' => 'required|integer|min:10|max:35000',
             'amount_exchanged' => 'required|integer',
-            'currency' => 'required',
             'pin' => 'required',
         ]);
         $user = auth()->user();
@@ -668,51 +667,27 @@ class UserController extends Controller
             return back()->with('error', 'You have entered wrong Pin!');
         }
         $setting = Setting::first();
-        $currency = $request->currency;
         $amount_sold = $request->amount_sold;
         $ref_id = Str::random(10);
         // return $after_fee_amount;
-        $market_price = MarketPrice::query();
-        if ($currency == 'usd') {
-            if ($amount_sold > $user->usd_wallet) {
-                return back()->with('error', 'Your entered amount is more than your USD balance');
-            }
-            $user_data = [
-                'usd_wallet' => $user->usd_wallet - $amount_sold
-            ];
-            $market_price = $market_price->where('symbol', '$')->first();
-            $amount_exchanged = $market_price->black_market_rate * $amount_sold;
-            $black_market_data = [
-                'ref_id' => $ref_id,
-                'user_id' => $user->id,
-                'amount_sold' => $amount_sold,
-                'amount_exchanged' => $amount_exchanged,
-                'currency' => $currency,
-                'status' => 0,
-                // 'completed_at' => Carbon::now()->addSeconds($setting->usd_black_market_counter)
-                'completed_at' => Carbon::now()->addHours($setting->usd_black_market_counter)
-            ];
+        if ($amount_sold > $user->sct_wallet) {
+            return back()->with('error', 'Your entered amount is more than your SCT balance');
         }
-        if ($currency == 'gbp') {
-            if ($amount_sold > $user->sct_wallet) {
-                return back()->with('error', 'Your entered amount is more than your GBP balance');
-            }
-            $user_data = [
-                'sct_wallet' => $user->sct_wallet - $amount_sold
-            ];
-            $market_price = $market_price->where('symbol', '£')->first();
-            $amount_exchanged = $market_price->black_market_rate * $amount_sold;
-            $black_market_data = [
-                'ref_id' => $ref_id,
-                'user_id' => $user->id,
-                'amount_sold' => $amount_sold,
-                'amount_exchanged' => $amount_exchanged,
-                'currency' => $currency,
-                'status' => 0,
-                // 'completed_at' => Carbon::now()->addSeconds($setting->gbp_black_market_counter)
-                'completed_at' => Carbon::now()->addHours($setting->gbp_black_market_counter)
-            ];
-        }
+        $user_data = [
+            'sct_wallet' => $user->sct_wallet - $amount_sold
+        ];
+        $market_price = $setting->sct_to_usd;
+        $amount_exchanged = $market_price * $amount_sold;
+        $black_market_data = [
+            'ref_id' => $ref_id,
+            'user_id' => $user->id,
+            'amount_sold' => $amount_sold,
+            'amount_exchanged' => $amount_exchanged,
+            'currency' => 'sct',
+            'status' => 0,
+            // 'completed_at' => Carbon::now()->addSeconds($setting->sct_convert_time)
+            'completed_at' => Carbon::now()->addHours($setting->sct_convert_time)
+        ];
         // return $black_market_data;
         try {
             DB::transaction(function () use ($user, $user_data, $black_market_data) {
@@ -729,14 +704,97 @@ class UserController extends Controller
 
     public function get_amount_exchanged(Request $request)
     {
-        $market_price = MarketPrice::query();
-        if ($request->currency == 'usd') {
-            $market_price = $market_price->where('symbol', '$');
-        } else {
-            $market_price = $market_price->where('symbol', '£');
+        $settings = Setting::first();
+        // $market_price = MarketPrice::query();
+        // if ($request->currency == 'usd') {
+        //     $market_price = $market_price->where('symbol', '$');
+        // } else {
+        $market_price = $settings->sct_to_usd;
+        // }
+        // $market_price = $market_price->first();
+        $amount_exchanged = $market_price * $request->amountSold;
+        return $amount_exchanged;
+    }
+
+    public function sell_to_naira()
+    {
+        $blackMarketLogObj = BlackmarketLog::where('user_id', auth()->user()->id)->where('currency', 'usd');
+        $logs = $blackMarketLogObj->latest('id')->get();
+        $latest_log = $blackMarketLogObj->where('status', 0)->latest('id')->first();
+        return view('user.sell_to_naira', compact('logs', 'latest_log'));
+    }
+
+    public function do_sell_to_naira(Request $request)
+    {
+        // return $request;
+        // $today = Carbon::now();
+        // $day_of_week = $today->format('l');
+        // $days_not_allowed = ['Saturday', 'Sunday'];
+        // if (in_array($day_of_week, $days_not_allowed)) {
+        //     return back()->with('warning', 'You cannot use black market on Saturday and Sunday.');
+        // }
+        $request->validate([
+            'amount_sold' => 'required|integer|min:10|max:35000',
+            'amount_exchanged' => 'required|integer',
+            'pin' => 'required',
+        ]);
+        $user = auth()->user();
+        if (!$user->is_verified) {
+            return back()->with('error', 'Your account is not verified!');
         }
-        $market_price = $market_price->first();
-        $amount_exchanged = $market_price->black_market_rate * $request->amountSold;
+        if (!$user->pin) {
+            return back()->with('error', 'Please setup your Pin!');
+        }
+        if ($user->pin != $request->pin) {
+            return back()->with('error', 'You have entered wrong Pin!');
+        }
+        $setting = Setting::first();
+        $amount_sold = $request->amount_sold;
+        $ref_id = Str::random(10);
+        // return $after_fee_amount;
+        if ($amount_sold > $user->usd_wallet) {
+            return back()->with('error', 'Your entered amount is more than your SCT balance');
+        }
+        $user_data = [
+            'usd_wallet' => $user->usd_wallet - $amount_sold
+        ];
+        $market_price = $setting->usd_to_naira;
+        $amount_exchanged = $market_price * $amount_sold;
+        $black_market_data = [
+            'ref_id' => $ref_id,
+            'user_id' => $user->id,
+            'amount_sold' => $amount_sold,
+            'amount_exchanged' => $amount_exchanged,
+            'currency' => 'usd',
+            'status' => 0,
+            // 'completed_at' => Carbon::now()->addSeconds($setting->usd_convert_time)
+            'completed_at' => Carbon::now()->addHours($setting->usd_convert_time)
+        ];
+        // return $black_market_data;
+        try {
+            DB::transaction(function () use ($user, $user_data, $black_market_data) {
+                $user->update($user_data);
+                $black_market_log = BlackmarketLog::create($black_market_data);
+                // Mail::to($user->email)->send(new GeneralEmail($user->name, 'Black Market Sell request of ' . $black_market_log->get_amount_sold . ' is pending<br>Thanks for working with us.', 'Black Market Sell Request is pending', 1));
+            });
+            return redirect()->route('user.sell_to_naira')->with('success', 'Black Market Sell request is placed.');
+        } catch (Throwable $th) {
+            Log::error($th->getMessage());
+            return back()->with('error', 'Something went wrong!');
+        }
+    }
+
+    public function get_naira_amount_exchanged(Request $request)
+    {
+        $settings = Setting::first();
+        // $market_price = MarketPrice::query();
+        // if ($request->currency == 'usd') {
+        //     $market_price = $market_price->where('symbol', '$');
+        // } else {
+        $market_price = $settings->usd_to_naira;
+        // }
+        // $market_price = $market_price->first();
+        $amount_exchanged = $market_price * $request->amountSold;
         return $amount_exchanged;
     }
 

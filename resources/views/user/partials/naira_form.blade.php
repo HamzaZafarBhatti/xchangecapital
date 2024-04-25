@@ -11,7 +11,7 @@
         <p class="h5 text-success">Minimum Trade Amount: $10/£10</p>
         <p class="h5 text-success">Maximum Trade Amount: ${{ $set->max_deposit_by_vendor }}/£{{ $set->max_deposit_by_vendor }}</p>
         <p class="h5 text-success">Enter Amount & Click on "TRADE NOW".</p>
-        <form action="{{ route('user.do_sell_to_blackmarket') }}" method="post">
+        <form action="{{ route('user.do_sell_to_naira') }}" method="post">
             @csrf
             <div class="pt-3">
                 <div class="row align-items-center">
@@ -21,7 +21,7 @@
                             <input type="number" step=".01" min="0.00" class="form-control @if ($errors->get('amount_sold')) is-invalid @endif" placeholder="0.00"
                                 name="amount_sold" id="amount_sold" aria-label="0.00" aria-describedby="sell">
                             <span class="input-group-text" id="sell">
-                                SCT
+                                USD
                             </span>
                             @if ($errors->get('amount_sold'))
                                 <div class="invalid-feedback">
@@ -51,7 +51,7 @@
                                 name="amount_exchanged" id="amount_exchanged" aria-label="0.00"
                                 aria-describedby="receive" readonly>
                             <span class="input-group-text" id="receive">
-                                USD
+                                NGN
                             </span>
                             @if ($errors->get('amount_exchanged'))
                                 <div class="invalid-feedback">
