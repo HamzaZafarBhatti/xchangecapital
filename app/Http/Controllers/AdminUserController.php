@@ -22,11 +22,7 @@ class AdminUserController extends Controller
     public function index()
     {
         //
-        $roleIds = config('app.userVendorRoleIds');
-        $roleIds = explode(',', $roleIds);
-        $records = User::with("roles", "country", "parent")->whereHas("roles", function ($q) use ($roleIds) {
-            $q->whereIn("id", $roleIds);
-        })->latest('id')->get();
+        $records = User::role(['User', 'Vendor'])->with("roles", "country", "parent")->latest('id')->get();
         return view('admin.users.index', compact('records'));
     }
 

@@ -21,6 +21,7 @@
                                     <th>Refferal Upline</th>
                                     <th>Email</th>
                                     <th>Country</th>
+                                    <th>Type</th>
                                     <th>Status</th>
                                     <th>Created</th>
                                     <th class="text-center">Action</th>
@@ -36,6 +37,7 @@
                                         <td>{{ $val->parent->name ?? 'N/A' }}</td>
                                         <td>{{ $val->email }}</td>
                                         <td>{{ $val->country ? $val->country->name : 'N/A' }}</td>
+                                        <td>{{ $val->roles[0]?->name }}</td>
                                         <td>
                                             @if ($val->is_verified)
                                                 <span class="badge badge-info">Verified</span>

@@ -17,11 +17,10 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
-    'userVendorRoleIds' => env('USER_VENDOR_ROLE_IDS'),
-    'fw_public_key' => env('FLWPUBK', 'FLWPUBK_TEST-afdbe8a385982325e65138ad3b8bceb2-X'),
-    'fw_secret_key' => env('FLWSECK', 'FLWSECK_TEST-b108e2c957acbdd8e958a36fb1fdb645-X'),
-    'fw_encryption' => env('FLWENCRYPT', 'FLWSECK_TESTe1f687a3d1e1'),
-    'fw_url' => env('FLWURL', 'https://api.flutterwave.com/v3'),
+    'fw_public_key' => env('FLWPUBK'),
+    'fw_secret_key' => env('FLWSECK'),
+    'fw_encryption' => env('FLWENCRYPT'),
+    'fw_url' => env('FLWURL'),
 
     /*
     |--------------------------------------------------------------------------
