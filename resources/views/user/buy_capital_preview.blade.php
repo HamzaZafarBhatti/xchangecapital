@@ -82,11 +82,11 @@
             <div class="container">
                 <p>Transfer amount to the merchant account provided below.</p>
                 <h6>Merchant Bank Name</h6>
-                <p>Guarranty Trust Bank</p>
+                <p>{{ $vendor->bank_detail?->bank->name }}</p>
                 <h6>Merchant Account Name</h6>
-                <p>John doe</p>
+                <p>{{ $vendor->bank_detail?->account_name }}</p>
                 <h6>Merchant Account Number</h6>
-                <p>1234123123124</p>
+                <p>{{ $vendor->bank_detail?->account_number }}</p>
             </div>
             <div class="container">
                 <p>After Transferring the amount, upload screenshot and click on "Transferred, Notify Merchant" Button.</p>

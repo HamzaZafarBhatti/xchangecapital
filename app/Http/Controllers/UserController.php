@@ -121,7 +121,7 @@ class UserController extends Controller
 
     public function merchants()
     {
-        $vendors = User::role('Vendor')->get();
+        $vendors = User::role('Vendor')->when(auth()->user()->hasRole('Vendor'), fn($q) => $q->whereNot('id', auth()->user()->id))->get();
         return view('user.merchants', compact('vendors'));
     }
 
