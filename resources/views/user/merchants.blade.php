@@ -36,9 +36,9 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="heading">Merchant ({{ $vendor->name }})</h3>
-                        <h5>Selling Price of SafeCapital Token: NGN {{ $vendor->sct_sell_price }}</h5>
+                        <h5>Selling Price of SafeCapital Token: NGN {{ $market_price->local_rate }}</h5>
                         <h5>Total SafeCapital (SCT): {{ $vendor->sct_wallet }}</h5>
-                        <h5>Amount Worth in Naira: N{{ $vendor->sct_wallet * $vendor->sct_sell_price }}</h5>
+                        <h5>Amount Worth in Naira: N{{ $vendor->sct_wallet * $market_price->local_rate }}</h5>
                         <h5>Status: {{ $vendor->sct_available ? 'Available' : 'Unavailable' }}</h5>
                         <h5>Payment: Bank Transfer</h5>
                         <a href="{{ route('user.buy_capital.index', $vendor->id) }}" type="button"

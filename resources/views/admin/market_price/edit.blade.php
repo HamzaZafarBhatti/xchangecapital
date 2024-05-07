@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-form-label col-lg-2">Arbyvest rate:</label>
+                                <label class="col-form-label col-lg-2">Official rate:</label>
                                 <div class="col-lg-10">
                                     <input type="number" step=".01" name="local_rate" value="{{ $marketPrice->local_rate }}" class="form-control" required>
                                 </div>

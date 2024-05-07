@@ -49,9 +49,9 @@
                         <div class="col-sm-6"><b>Merchant</b></div>
                         <div class="col-sm-6">{{ $vendor->name }}</div>
                         <div class="col-sm-6"><b>Merchant Rate</b></div>
-                        <div class="col-sm-6">N{{ $vendor->sct_sell_price }}/SCT</div>
+                        <div class="col-sm-6">N{{ $market_price->local_rate }}/SCT</div>
                         <div class="col-sm-6"><b>Amount Worth</b></div>
-                        <div class="col-sm-6">N{{ $vendor->sct_wallet * $vendor->sct_sell_price }}</div>
+                        <div class="col-sm-6">N{{ $vendor->sct_wallet * $market_price->local_rate }}</div>
                         <div class="col-sm-6"><b>Available Aruba (AWG)</b></div>
                         <div class="col-sm-6">{{ $vendor->sct_wallet }}SCT</div>
                     </div>
@@ -75,7 +75,7 @@
 <script>
     const sctAmountInput = document.getElementById('amount');
     const ngnAmountInput = document.getElementById('ngn_amount');
-    const rate = '{{$vendor->sct_sell_price}}';
+    const rate = '{{$market_price->local_rate}}';
     sctAmountInput.addEventListener('input', function(e) {
         ngnAmountInput.value = sctAmountInput.value * rate
     })
