@@ -13,6 +13,7 @@
         <p class="h5 text-success">Enter Amount & Click on "TRADE NOW".</p>
         <form action="{{ route('user.do_sell_to_blackmarket') }}" method="post">
             @csrf
+            <input type="hidden" id="currency" value="sct">
             <div class="pt-3">
                 <div class="row align-items-center">
                     <div class="col-xl-5 col-12">

@@ -77,10 +77,10 @@
     const ngnAmountInput = document.getElementById('ngn_amount');
     const rate = '{{$market_price->local_rate}}';
     sctAmountInput.addEventListener('input', function(e) {
-        ngnAmountInput.value = sctAmountInput.value * rate
+        ngnAmountInput.value = parseFloat(sctAmountInput.value * rate).toFixed(2)
     })
     ngnAmountInput.addEventListener('input', function(e) {
-        sctAmountInput.value = ngnAmountInput.value / rate
+        sctAmountInput.value = parseFloat(ngnAmountInput.value / rate).toFixed(2)
     })
 </script>
 @endsection

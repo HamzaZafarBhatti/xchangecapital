@@ -198,7 +198,6 @@ Route::middleware('auth')->group(function () {
             Route::post('withdraw_referral', 'do_withdraw_referral')->name('do_withdraw_referral');
             Route::get('sell_to_naira', 'sell_to_naira')->name('sell_to_naira');
             Route::post('sell_to_naira', 'do_sell_to_naira')->name('do_sell_to_naira');
-            Route::post('get_naira_amount_exchanged', 'get_naira_amount_exchanged')->name('get_naira_amount_exchanged');
             Route::get('sell_to_blackmarket', 'sell_to_blackmarket')->name('sell_to_blackmarket');
             Route::post('sell_to_blackmarket', 'do_sell_to_blackmarket')->name('do_sell_to_blackmarket');
             Route::post('get_amount_exchanged', 'get_amount_exchanged')->name('get_amount_exchanged');

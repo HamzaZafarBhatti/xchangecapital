@@ -121,7 +121,7 @@ class UserController extends Controller
 
     public function merchants()
     {
-        $vendors = User::role('Vendor')->when(auth()->user()->hasRole('Vendor'), fn($q) => $q->whereNot('id', auth()->user()->id))->get();
+        $vendors = User::role('Vendor')->when(auth()->user()->hasRole('Vendor'), fn ($q) => $q->whereNot('id', auth()->user()->id))->get();
         $market_price = MarketPrice::where('symbol', 'SCT')->first();
         return view('user.merchants', compact('vendors', 'market_price'));
     }
@@ -160,6 +160,7 @@ class UserController extends Controller
     public function buy_capital_complete(Request $request)
     {
         $transaction = Transaction::find($request->transaction_id);
+        $vendor = User::find($transaction->merchant_id);
         if ($image = $request->file('proof')) {
             $filename = 'proof_' . time() . '.' . $image->getClientOriginalExtension();
             $location =  $transaction->getTransactionPath() . $filename;
@@ -167,7 +168,7 @@ class UserController extends Controller
             $data['image'] = $filename;
             $transaction->update($data);
         }
-        return redirect()->route('user.buy_capital.merchants');
+        return view('user.buy_capital_success', compact('vendor', 'transaction'));
     }
 
     public function fund_wallet_callback(Request $request)
@@ -568,6 +569,8 @@ class UserController extends Controller
             return back()->with('error', 'You have entered wrong Pin!');
         }
         $setting = Setting::first();
+        $market_price = MarketPrice::where('symbol', 'USD')->first();
+        $rate = $market_price->local_rate;
         $amount_sold = $request->amount_sold;
         $ref_id = Str::random(10);
         // return $after_fee_amount;
@@ -577,8 +580,7 @@ class UserController extends Controller
         $user_data = [
             'sct_wallet' => $user->sct_wallet - $amount_sold
         ];
-        $market_price = $setting->sct_to_usd;
-        $amount_exchanged = $market_price * $amount_sold;
+        $amount_exchanged = $rate * $amount_sold;
         $black_market_data = [
             'ref_id' => $ref_id,
             'user_id' => $user->id,
@@ -605,15 +607,13 @@ class UserController extends Controller
 
     public function get_amount_exchanged(Request $request)
     {
-        $settings = Setting::first();
-        // $market_price = MarketPrice::query();
-        // if ($request->currency == 'usd') {
-        //     $market_price = $market_price->where('symbol', '$');
-        // } else {
-        $market_price = $settings->sct_to_usd;
-        // }
-        // $market_price = $market_price->first();
-        $amount_exchanged = $market_price * $request->amountSold;
+        $market_price = MarketPrice::where('symbol', 'USD')->first();
+        if ($request->currency == 'sct') {
+            $rate = $market_price->local_rate;
+        } else {
+            $rate = $market_price->black_market_rate;
+        }
+        $amount_exchanged = $rate * $request->amountSold;
         return $amount_exchanged;
     }
 
@@ -650,6 +650,8 @@ class UserController extends Controller
             return back()->with('error', 'You have entered wrong Pin!');
         }
         $setting = Setting::first();
+        $market_price = MarketPrice::where('symbol', 'USD')->first();
+        $rate = $market_price->black_market_rate;
         $amount_sold = $request->amount_sold;
         $ref_id = Str::random(10);
         // return $after_fee_amount;
@@ -659,8 +661,7 @@ class UserController extends Controller
         $user_data = [
             'usd_wallet' => $user->usd_wallet - $amount_sold
         ];
-        $market_price = $setting->usd_to_naira;
-        $amount_exchanged = $market_price * $amount_sold;
+        $amount_exchanged = $rate * $amount_sold;
         $black_market_data = [
             'ref_id' => $ref_id,
             'user_id' => $user->id,
@@ -683,20 +684,6 @@ class UserController extends Controller
             Log::error($th->getMessage());
             return back()->with('error', 'Something went wrong!');
         }
-    }
-
-    public function get_naira_amount_exchanged(Request $request)
-    {
-        $settings = Setting::first();
-        // $market_price = MarketPrice::query();
-        // if ($request->currency == 'usd') {
-        //     $market_price = $market_price->where('symbol', '$');
-        // } else {
-        $market_price = $settings->usd_to_naira;
-        // }
-        // $market_price = $market_price->first();
-        $amount_exchanged = $market_price * $request->amountSold;
-        return $amount_exchanged;
     }
 
     public function verify_trader()

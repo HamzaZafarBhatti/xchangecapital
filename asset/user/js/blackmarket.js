@@ -1,5 +1,6 @@
 var amountSold = document.getElementById("amount_sold");
 var amountExchanged = document.getElementById("amount_exchanged");
+var currency = document.getElementById('currency')
 
 amountSold.addEventListener("input", getAmountExchanged);
 
@@ -11,6 +12,7 @@ function getAmountExchanged() {
             dataType: "json",
             data: {
                 amountSold: amountSold.value,
+                currency: currency.value,
             },
             success: function (response) {
                 amountExchanged.value = response;
